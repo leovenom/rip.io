@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_165937) do
+ActiveRecord::Schema.define(version: 2020_03_02_171728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2020_03_02_165937) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "personalities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "attraction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id"], name: "index_personalities_on_attraction_id"
+  end
+
   create_table "tours", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "price"
@@ -70,5 +78,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_165937) do
   add_foreign_key "attractions_tours", "tours"
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
+  add_foreign_key "personalities", "attractions"
   add_foreign_key "tours", "users"
 end
