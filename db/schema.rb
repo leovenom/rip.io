@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_164258) do
+ActiveRecord::Schema.define(version: 2020_03_02_171728) do
 
 
   # These are extensions that must be enabled in order to support this database
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_03_02_164258) do
     t.index ["user_id"], name: "index_attractions_on_user_id"
   end
 
+  create_table "attractions_tours", force: :cascade do |t|
+    t.bigint "tour_id"
+    t.bigint "attraction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id"], name: "index_attractions_tours_on_attraction_id"
+    t.index ["tour_id"], name: "index_attractions_tours_on_tour_id"
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "tour_id"
@@ -35,6 +44,14 @@ ActiveRecord::Schema.define(version: 2020_03_02_164258) do
     t.datetime "updated_at", null: false
     t.index ["tour_id"], name: "index_bookings_on_tour_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "personalities", force: :cascade do |t|
+    t.string "name"
+    t.bigint "attraction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id"], name: "index_personalities_on_attraction_id"
   end
 
   create_table "tours", force: :cascade do |t|
@@ -61,7 +78,10 @@ ActiveRecord::Schema.define(version: 2020_03_02_164258) do
   end
 
   add_foreign_key "attractions", "users"
+  add_foreign_key "attractions_tours", "attractions"
+  add_foreign_key "attractions_tours", "tours"
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
+  add_foreign_key "personalities", "attractions"
   add_foreign_key "tours", "users"
 end
