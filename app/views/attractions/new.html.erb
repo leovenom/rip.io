@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Add Attraction</h1>
+    <%= simple_form_for @attraction do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :description %>
+      <%= f.button :submit,"Add attraction", class: "btn btn-flat" %>
+  <% end %>
+</div>
