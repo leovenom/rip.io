@@ -1,5 +1,7 @@
+<%= render 'shared/navbar' %>
 <% @attractions.each do |attraction| %>
   <ul>
     <li><%= attraction.name %></li>
   </ul>
 <% end %>
+<%= render 'shared/footer' %>
