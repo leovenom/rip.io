@@ -2,7 +2,18 @@ class AttractionsController < ApplicationController
 
 
   def index
-    @attractions = policy_scope(Attraction)
+    if params[:search].present? && params[:search][:query].present?
+      @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
+    else
+      @attractions = policy_scope(Attraction).order(created_at: :desc).geocoded
+    end
+
+    @markers = @attractions.map do |attraction|
+      {
+        lat: attraction.latitude,
+        lng: attraction.longitude
+      }
+    end
   end
 
   def show
