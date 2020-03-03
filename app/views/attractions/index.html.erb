@@ -4,9 +4,6 @@
     <li><%= attraction.name %></li>
   </ul>
 <% end %>
-<<<<<<< HEAD
-<%= render 'shared/footer' %>
-=======
 <div
   id="map"
   style="width: 100%;
@@ -14,4 +11,4 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
->>>>>>> 9c38b4f1e5adcd25b2d7a5da0fe89a46faae2062
+<%= render 'shared/footer' %>
