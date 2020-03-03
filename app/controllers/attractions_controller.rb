@@ -1,7 +1,7 @@
 class AttractionsController < ApplicationController
 
   def index
-    @attractions = Attraction.all
+    @attractions = policy_scope(Attraction)
   end
 
   def show
