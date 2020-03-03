@@ -1,7 +1,8 @@
-.banner {
+ .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 250px 0;
+
 }
 
 .banner h1 {
@@ -19,24 +20,17 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.video  {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    background-size: cover;
-    overflow: hidden;
-}
-
-// .banner {
+// #videoBG {
 //   position: fixed;
-//   bottom: 0;
-//   background: rgba(0, 0, 0, 0.5);
-//   color: #f1f1f1;
+//   top: 0;
+//   left: 0;
 //   width: 100%;
-//   padding: 20px;
+//   height: 100%;
+//   overflow: hidden;
+//   z-index: -1;
+// }
+// .container {
+//   width: 100%;
+//   padding: 100px;
+//   margin-top: 100px;
 // }
