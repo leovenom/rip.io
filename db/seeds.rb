@@ -11,12 +11,15 @@ Attraction.destroy_all
 Tour.destroy_all
 User.destroy_all
 
+puts 'creating user'
 
-User.create(first_name: 'user', last_name: 'one', email: email@email.com)
-Attraction.create(name: 'Cemitério', address: 'Rua do conde de Redondo, 91B', description: 'really dark cemitery')
-
+user = User.create(first_name: 'user', last_name: 'one', email: 'email@email.com', password: '123456')
 
 puts 'creating attractions'
 
+Attraction.create(name: 'Cemitério',
+  address: 'Rua do conde de Redondo, 91B',
+  description: 'really dark cemitery',
+  user: user)
 
-puts 'finished'
+puts 'done'

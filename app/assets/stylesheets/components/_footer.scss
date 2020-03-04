@@ -1,43 +1,41 @@
-.container {
-  box-sizing: border-box;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 980px;
-  padding: 1px;
-  width: 1170px;
- justify-content: Center;
-}
-
 .footer {
   background-color: #212A3C;
   box-sizing: border-box;
   color: #ffffff;
   display: block;
-  font-size: 15px;
+  font-size: 19px;
   padding: 40px 15px 20px;
 }
 
-.col-md-3 {
-  box-sizing: border-box;
-  float: left;
-  min-height: 1px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
-  width: 25%;
+.space-items {
+justify-content: space-evenly;
 }
+// .col-md-3 {
+//   box-sizing: border-box;
+//   float: left;
+//   min-height: 1px;
+//   padding-left: 15px;
+//   padding-right: 15px;
+//   position: relative;
+//   width: 25%;
+// }
 
 a {
   background-color: transparent;
   box-sizing: border-box;
   color: #c8c8c8;
-  font-size: 20px;
+  font-size: 18px;
   text-decoration: none;
   transition: all 100ms ease-in-out;
 }
 
 hr {
   border-color: #fff;
-  width: 10%;
+  width: 100%;
   margin-left: 0;
+}
+
+.ripio2020 {
+  font-size: 14px;
+  margin-left: 45px;
 }
