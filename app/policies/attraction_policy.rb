@@ -21,10 +21,13 @@ class AttractionPolicy < ApplicationPolicy
     return true if user.present? && user == attraction.user
   end
 
+  def my_attractions?
+    true
+  end
+
   private
 
   def attraction
     record
   end
-
 end
