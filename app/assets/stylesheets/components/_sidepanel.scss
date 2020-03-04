@@ -1,8 +1,8 @@
 .sidepanel {
   height: 100vh; /* Specify a height */
-  width: 0; /* 0 width - change this with JavaScript */
+  width: 600px; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 3; /* Stay on top */
+  z-index: 100; /* Stay on top */
   top: 0;
   left: 0;
   background-color: #212A3C;
@@ -47,4 +47,38 @@
 
 #show-sidebar:hover {
   background-color: #444;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #525965;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #525965;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #525965;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
