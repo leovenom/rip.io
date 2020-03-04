@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   resources :attractions do
     resources :bookings
   end
+
+  get '/my_attractions', to: 'pages#my_attractions'
+  get '/my_bookings', to: 'pages#my_bookings'
+  get '/profile', to: 'pages#profile'
+  delete '/my_bookings', to: 'bookings#destroy', as: 'my_bookings_destroy'
 end
