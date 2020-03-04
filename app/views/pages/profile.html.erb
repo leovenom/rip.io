@@ -1,0 +1,45 @@
+<div class="col-xs-1" align="center">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+    <div class="col-md-3">
+      <div class="image">
+        <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1580586175/ntpyaym6fuq3mq3ktv3t.jpg"%>
+      </div>
+    </div>
+
+    <div class="col-md-2 personal-info">
+      <br />
+      <h5><b>Your Details</b></h5>
+      <br />
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <p><u>First Name</u></p>
+          <%= current_user.first_name %>
+        </div>
+        <hr>
+
+        <div class="form-group">
+          <p><u>Last Name</u></p>
+          <%= current_user.last_name %>
+        </div>
+        <hr>
+
+        <div class="form-group">
+          <p><u>Email</u></p>
+          <%= current_user.email %>
+        </div>
+        <br />
+
+        <div class="form-group">
+            <a href="users/edit" class="btn btn-flat" role="button"><strong>Edit Details</strong></a>
+        </div>
+      </form>
+      <br />
+    </div>
+  </div>
+</div>
+</div>
+<%= render 'shared/footer' %>
