@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+require "open-uri"
+
 puts 'Destroying data'
 
 Attraction.destroy_all
@@ -17,9 +21,13 @@ user = User.create(first_name: 'user', last_name: 'one', email: 'email@email.com
 
 puts 'creating attractions'
 
-Attraction.create(name: 'Cemitério',
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+attraction = Attraction.new(name: 'Cemitério',
   address: 'Rua do conde de Redondo, 91B',
   description: 'really dark cemitery',
   user: user)
+attraction.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+attraction.save
 
 puts 'done'
