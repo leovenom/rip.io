@@ -5,7 +5,6 @@
   min-height: 25rem;
   width: 100%;
   overflow: hidden;
-  bottom:80px;
 }
 
 .header video {
@@ -21,6 +20,7 @@
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  top: 445px;
 }
 
 .header .container {
