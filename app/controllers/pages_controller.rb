@@ -20,4 +20,10 @@ class PagesController < ApplicationController
     @user = current_user
     authorize @user
   end
+
+  def be_a_guide
+    @user = current_user
+    @user.guide!
+    authorize @user
+  end
 end
