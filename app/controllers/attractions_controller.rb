@@ -42,6 +42,6 @@ class AttractionsController < ApplicationController
   private
 
   def attraction_params
-    params.require(:attraction).permit(:name, :address, :description, :user_id)
+    params.require(:attraction).permit(:name, :address, :description, :user_id, photos: [])
   end
 end
