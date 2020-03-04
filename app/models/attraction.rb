@@ -3,7 +3,7 @@ class Attraction < ApplicationRecord
   has_many :personalities
   has_many :attractions_tours
   geocoded_by :address
-  has_many_attached :photo
+  has_many_attached :photos
   after_validation :geocode, if: :will_save_change_to_address?
 
   validates :name, presence: true, uniqueness: true
