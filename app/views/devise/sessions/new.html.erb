@@ -1,8 +1,11 @@
-<div class="container form-group col-md-4 form-group col-md-4">
-  <br>
-  <h2>Log in</h2>
-  <br>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<br />
+<br />
+<div class="container form-group col-md-4 form-group col-md-4 border border-primary">
+  <br />
+  <br />
+  <h2>Log In</h2>
+    <br />
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,
                   required: false,
@@ -15,9 +18,10 @@
     </div>
 
     <div class="form-actions btn btn-outline-secondary">
-      <%= f.button :submit, "Log in" %>
+      <%= f.button :submit, "Log In" %>
     </div>
-  <% end %>
-  <br>
-  <%= render "devise/shared/links" %>
-</div>
+    <% end %>
+    <br />
+    <%= render "devise/shared/links" %>
+  </div>
+<%= render 'shared/footer' %>
