@@ -1,1 +1,29 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Guide</th>
+        <th scope="col">Price</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Cancel</th>
+      </tr>
+    </thead>
 
+    <tbody>
+      <% count = 1 %>
+      <% @bookings.each do |booking| %>
+      <tr>
+        <th scope="row"><%= count %></th>
+        <td> <%= booking.start_date %> </td>
+        <td> <%= tours.user_id %> </td>
+        <td> <%= tours.price %> </td>
+        <td> <%= link_to "Edit", edit_locker_booking_path(booking.locker_id, booking.id), class: "btn btn-flat" %></td>
+        <td> <%= link_to "Delete", my_bookings_destroy_path, method: :delete, class: "btn btn-flat" %></td>
+      </tr>
+      <% count += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
