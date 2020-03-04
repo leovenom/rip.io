@@ -2,6 +2,7 @@ class AttractionsController < ApplicationController
 
 
   def index
+     @attractions =  Attraction.all
     if params[:search].present? && params[:search][:query].present?
       @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
     else

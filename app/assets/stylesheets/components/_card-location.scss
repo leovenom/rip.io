@@ -1,3 +1,20 @@
+.card {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 20px 20px;
+  border: 20px solid rgba(0, 0, 0, 0.0);
+  // width: 20rem;
+  max-width: 20rem;
+  min-width: 18rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  color: #636a7c;
+}
+
+
 // .card-trip {
 //   overflow: hidden;
 //   background: white;
