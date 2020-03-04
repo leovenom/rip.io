@@ -3,6 +3,7 @@ class BookingPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
     def create?
       true
@@ -39,5 +40,5 @@ class BookingPolicy < ApplicationPolicy
   # def user_is_owner_or_admin?
   #   record.user == user || user.admin?
   # end
-  end
+
 end
