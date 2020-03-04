@@ -1,10 +1,10 @@
-<div class="container">
+<div class="formulario container col-md-4">
   <h1>Add Attraction</h1>
     <%= simple_form_for @attraction do |f| %>
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :description %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.button :submit,"Add attraction", class: "btn btn-flat" %>
+      <%= f.button :submit,"Add attraction", class: "btn btn-outline-secondary" %>
   <% end %>
 </div>
