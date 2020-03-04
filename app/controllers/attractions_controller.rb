@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-
+before_action :set_attraction, only: [ :edit, :update, :destroy]
 
   def index
      @attractions =  Attraction.all
@@ -32,16 +32,36 @@ class AttractionsController < ApplicationController
     @attraction.user = current_user
     authorize @attraction
 
-    if @attraction.save
-      redirect_to "/attractions"
+    if @attraction.save!
+      redirect_to attractions_path
     else
       render_errors
     end
   end
+
+  def edit
+    authorize @attraction
+    redirect_to attraction_path
+  end
+
+
+  def destroy
+    authorize @attraction
+  if @attraction.destroy
+      redirect_to my_attractions_path, notice: "Attraction was successfully destroyed"
+  else
+      puts @attraction.errors.messages
+    end
+  end
+
 
   private
 
   def attraction_params
     params.require(:attraction).permit(:name, :address, :description, :user_id, photos: [])
   end
+end
+
+def set_attraction
+    @attraction = Attraction.find(params[:id])
 end
