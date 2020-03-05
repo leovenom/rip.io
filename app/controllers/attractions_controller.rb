@@ -12,7 +12,8 @@ before_action :set_attraction, only: [ :edit, :update, :destroy]
     @markers = @attractions.map do |attraction|
       {
         lat: attraction.latitude,
-        lng: attraction.longitude
+        lng: attraction.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { attraction: attraction })
       }
     end
   end
