@@ -18,7 +18,7 @@
           <td> <%= personality.name %> </td>
           <td> <%= personality.address %> </td>
           <td> <%= personality.description%></td>
-          <td><%= link_to "Edit", edit_personality_path(personality.id), class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to "Edit", edit_personality_path(personality), class: "btn btn-outline-secondary" %></td>
           <td><%= link_to "Delete", personalities_path(personality), method: :delete, class: "btn btn-outline-danger" %></td>
         </tr>
         <% count += 1 %>
