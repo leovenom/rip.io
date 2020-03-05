@@ -1,0 +1,30 @@
+<div class="formulario container col-md-8">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">name</th>
+        <th scope="col">address</th>
+        <th scope="col">edit</th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% count = 1 %>
+      <% @personalities.each do |personality| %>
+        <tr>
+          <th scope="row"><%= count %></th>
+          <td> <%= personality.name %> </td>
+          <td> <%= personality.address %> </td>
+          <td> <%= personality.description%></td>
+          <td><%= link_to "Edit", edit_personality_path(personality), class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to "Delete", personalities_path(personality), method: :delete, class: "btn btn-outline-danger" %></td>
+        </tr>
+        <% count += 1 %>
+
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
