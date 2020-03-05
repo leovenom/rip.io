@@ -23,7 +23,7 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
   end
 
   def show
-     @personality = Personality.find(params[:id])
+    @personality = Personality.find(params[:id])
     authorize @personality
   end
 
