@@ -49,9 +49,18 @@ class AttractionsController < ApplicationController
 
   def edit
     authorize @attraction
-    redirect_to attraction_path
   end
 
+  def update
+    authorize @attraction
+    if @attraction.update(attraction_params)
+      @attraction.save
+      redirect_to attraction_path
+    else
+      puts @attraction.errors.messages
+      render :edit
+    end
+  end
 
   def destroy
     authorize @attraction

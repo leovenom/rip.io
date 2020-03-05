@@ -1,40 +1,47 @@
 <div class="container top-card d-flex justify-content-center">
-  <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Card image cap">
+    <% @attraction %>
+
+      <div class="card">
+        <% if @attraction.photos.attached? %>
+
+        <%= cl_image_tag (@attraction.photos.first.key), class:"card-img-top" %>
+        <% end %>
+      </div>
+</div>
 </div>
 
-<div class="container d-flex bd-highlight" id="show_att">
+<div class="show">
   <div class="row">
-      <div class="col-lg-6">
-        <div class="card-show" style="width: 100%;">
-          <div class="card-body">
-                <h5 class="card-title parag">
-                  <%= @attraction.name %>
-                </h5>
-                <h6 class="parag"> Address:
-                  <%= @attraction.address %>
-                </h6>
-                <p class="card-text parag">
-                  Description:
-                 <%= @attraction.description %>
-                </p>
-                <p>
-                  Text:
-                  <%= @attraction.text %>
-                </p>
-          </div>
+    <div class="col-sm">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= @attraction.name %>
+          </h5>
+            <%= @attraction.address %>
+          </h6>
+          <p class="card-text">
+            <%= @attraction.description %>
+          </p>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="card-show card-guide">
-          <%= "Guide" %>
-          </div>
+    </div>
+    <div class="col-sm">
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= @attraction.name %>
+          </h5>
+            <%= @attraction.address %>
+          </h6>
+          <p class="card-text">
+            <%= @attraction.description %>
+          </p>
         </div>
       </div>
-            <div class="col-lg-6">
-        <div class="card-show card-guide">
-          <%= "Guide" %>
-          </div>
-        </div>
+    </div>
+  </div>
+</div>
 </div>
 
 <%= render "shared/footer" %>
