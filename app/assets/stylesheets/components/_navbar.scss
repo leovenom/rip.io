@@ -3,10 +3,12 @@
   background: transparent;
   position: absolute;
   width:100%;
+  letter-spacing: 1px;
 }
 .navbar {
  background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.0));
  z-index: 99;
+ font-weight: bold;
 }
 
 .navbar-lewagon .navbar-collapse {
