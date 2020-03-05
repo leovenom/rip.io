@@ -1,6 +1,53 @@
 .map {
-position: static;
-width: 98%;
-height: 700px;
+  height: calc(100vh - 86px);
+  top: 86px;
+  position: sticky;
+}
 
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-size: 500px;
+  text-align: center;
+  font-style: bolder;
+  background-color: #999999;
+  opacity: 0.6;
+}
+
+.cards a:hover {
+  // box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  text-decoration: none;
+}
+
+.card-category:hover {
+  transform:translateY(-4px);
+  // transform:scale(1.05) translateY(0.1px);
+  opacity: 1;
+  transition: all .3s ease-in-out;
+  text-decoration: none;
+}
+
+.card-body {
+  padding: 2.5rem;
+  background-color: #f2f2f2;
+}
+
+.cards {
+  padding: 0 0 0 20px;
+}
+
+#card-index {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  padding: 12px
 }
