@@ -1,1 +1,28 @@
-my_attractions.html.erb
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Address</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% count = 1 %>
+      <% @attractions.each do |attraction| %>
+      <tr>
+        <th scope="row"><%= count %></th>
+        <td><%= attraction.name %></td>
+        <td><%= attraction.description %></td>
+        <td><%= attraction.address %></td>
+        <td><%= link_to "Edit", edit_attraction_path(attraction), class: "btn btn-flat" %></td>
+        <td><%= link_to "Delete", attraction, method: :delete, class: "btn btn-flat" %></td>
+      </tr>
+      <% count += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
