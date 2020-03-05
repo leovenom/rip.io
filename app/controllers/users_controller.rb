@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    def update_to_guide
+  def update_to_guide
     @user = current_user
     @user.guide!
     authorize @user

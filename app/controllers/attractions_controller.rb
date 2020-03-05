@@ -1,13 +1,20 @@
 class AttractionsController < ApplicationController
-before_action :set_attraction, only: [ :edit, :update, :destroy]
+  before_action :set_attraction, only: [ :edit, :update, :destroy]
 
   def index
-     @attractions =  Attraction.all
+     #@attractions =  Attraction.all
     if params[:search].present? && params[:search][:query].present?
       @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
+      @attractions_name = policy_scope(Attraction).where("name ILIKE '%#{params[:search][:query]}%'").geocoded
+      @attractions += @attractions_name
+      @attractions.uniq!
     else
       @attractions = policy_scope(Attraction).order(created_at: :desc).geocoded
     end
+    #  @attractions =  Attraction.all
+    # if params[:search].present? && params[:search][:query].present?
+    #   @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded.or(policy_scope(Attraction).where("name ILIKE '%#{params[:search][:query]}%'"))
+    # end
 
     @markers = @attractions.map do |attraction|
       {
@@ -30,6 +37,7 @@ before_action :set_attraction, only: [ :edit, :update, :destroy]
   def create
     @attraction = Attraction.new(attraction_params)
     @attraction.user = current_user
+    @attraction.country = Geocoder.search(attraction_params[:address]).first.country
     authorize @attraction
 
     if @attraction.save!
@@ -58,7 +66,7 @@ before_action :set_attraction, only: [ :edit, :update, :destroy]
   private
 
   def attraction_params
-    params.require(:attraction).permit(:name, :address, :description, :user_id, photos: [])
+    params.require(:attraction).permit(:name, :address, :description, :user_id, :country, photos: [])
   end
 end
 
