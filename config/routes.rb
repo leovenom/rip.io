@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'pages#profile'
   get '/be_a_guide', to: 'pages#be_a_guide'
   delete '/my_bookings', to: 'bookings#destroy', as: 'my_bookings_destroy'
+  patch 'update_to_guide', to: 'users#update_to_guide', as: 'update_to_guide'
 
   resources :personalities
 
