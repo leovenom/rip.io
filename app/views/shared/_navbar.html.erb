@@ -25,7 +25,9 @@
               <%= link_to "My Bookings", my_bookings_path, class: "dropdown-item" %>
               <%= link_to "Add Attractions", new_attraction_path, class: "dropdown-item" %>
               <%= link_to "My Attractions", my_attractions_path, class: "dropdown-item" %>
-              <%= link_to "Be a Guide", '/be_a_guide', class: "dropdown-item" %>
+              <% if current_user.role == 'user' %>
+              <%= link_to "Be a Guide", '/be_a_guide', class: "dropdown-item"  %>
+              <% end %>
               <%= link_to "My Tours", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
