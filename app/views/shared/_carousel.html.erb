@@ -1,10 +1,15 @@
 <div class="container col-lg-10">
-  <div class="row align-self-stretch d-flex justify-content-around">
+  <div class="row align-items-stretch justify-content-around">
       <% @attractions.each do |attract| %>
-      <%= link_to attraction_path(attract) do %>
+
       <div class="card">
-        <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Card image cap">
-        <div class="card-body">
+        <%= link_to attraction_path(attract) do %>
+        <% if attract.photos.attached? %>
+
+        <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
+                <% end %>
+<!--         <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Card image cap">
+ -->        <div class="card-body">
           <h5 class="card-title"><%= attract.name %></h5>
             <p class="card-text"><%= attract.address %></p>
             <p class="card-text"><%= attract.description %></p>
