@@ -12,4 +12,8 @@ class UserPolicy < ApplicationPolicy
   def be_a_guide?
     true
   end
+
+  def update_to_guide?
+    true
+  end
 end

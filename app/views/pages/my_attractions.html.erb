@@ -1,31 +1,28 @@
-<div class="formulario container col-md-8">
+<div class="formulario container">
   <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">name</th>
-        <th scope="col">address</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
         <th scope="col">Address</th>
-        <th scope="col">edit</th>
-        <th scope="col">delete</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
-
     <tbody>
       <% count = 1 %>
       <% @attractions.each do |attraction| %>
-        <tr>
-          <th scope="row"><%= count %></th>
-          <td> <%= attraction.name %> </td>
-          <td> <%= attraction.address %> </td>
-          <td> <%= attraction.description%></td>
-          <td><%= link_to "Edit", edit_attraction_path(attraction), class: "btn btn-outline-secondary" %></td>
-          <td><%= link_to "Delete", attraction_path(attraction), method: :delete, class: "btn btn-outline-danger" %></td>
-        </tr>
-        <% count += 1 %>
-
+      <tr>
+        <th scope="row"><%= count %></th>
+        <td><%= attraction.name %></td>
+        <td><%= attraction.description %></td>
+        <td><%= attraction.address %></td>
+        <td><%= link_to "Edit", edit_attraction_path(attraction), class: "btn btn-outline-secondary" %></td>
+        <td><%= link_to "Delete", attraction_path(attraction), method: :delete, class: "btn btn-outline-danger" %></td>
+      </tr>
+      <% count += 1 %>
       <% end %>
     </tbody>
   </table>
-
 </div>

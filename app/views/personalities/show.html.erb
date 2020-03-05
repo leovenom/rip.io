@@ -1,0 +1,45 @@
+<div class="container top-card d-flex justify-content-center">
+  <% @personality %>
+
+      <div class="card">
+        <% if @personality.photos.attached? %>
+
+        <%= cl_image_tag (@personality.photos.first.key), class:"card-img-top" %>
+        <% end %>
+      </div>
+</div>
+
+<div class="container d-flex bd-highlight" id="show_att">
+  <div class="row">
+      <div class="col-lg-6">
+        <div class="card-show" style="width: 100%;">
+          <div class="card-body">
+                <h5 class="card-title parag">
+                  <%= @personality.name %>
+                </h5>
+                <h6 class="parag">
+                  Address:
+                  <%= @personality.address %>
+                </h6>
+                <p class="card-text parag">
+                  Description:
+                 <%= @personality.description %>
+                </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card-show card-guide">
+          <%= "Guide" %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card-show card-guide">
+          <%= "Guide" %>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<%= render "shared/footer" %>
