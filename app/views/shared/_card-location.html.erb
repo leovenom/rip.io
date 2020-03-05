@@ -1,20 +1,3 @@
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-trip-infos">
-          <div>
-            <h2>Ukraine</h2>
-            <p>Ukraine is a large country in Eastern Europe known for its Orthodox churches, Black Sea coastline and forested mountains.</p>
-            <a class="btn btn-ghost" href="#">View Location</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
- -->
 
 <!-- new cards -->
 <div class="container">
@@ -34,43 +17,3 @@
   <% end %>
   <% end %>
 </div>
-
-<!-- <div class="container">
-<% @attractions.each do |attract| %>
-  <%= link_to attraction_path(attract) do %>
-<div class="d-flex justify-content-xs-center">
-  <% if attract.photos.attached? %>
-  <%= cl_image_tag attract.photos.first.key, class: "card-img-top"%>
-  <% else %>
-  <%= image_tag "logo.png" %>
-    <% end %>
-  <div class="card-body">
-    <h5 class="card-title"><%= attract.name %></h5>
-      <p class="card-text"><%= attract.address %></p>
-      <p class="card-text"><%= attract.description %></p>
-  </div>
-</div>
-  <% end %>
-  <% end %>
-</div> -->
-
-
-
-
-  <!--Controls-->
-  <div class="controls-top">
-    <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i
-        class="fas fa-chevron-left"></i></a>
-    <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i
-        class="fas fa-chevron-right"></i></a>
-  </div>
-  <!--/.Controls-->
-
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
-    <%# @attractions.photos.first.key.each_with_index  do |photo, index| %>
-    <li data-target="#carousel-example-multi" data-slide-to=" <%# index %>"></li>
-  </ol>
-  <!--/.Indicators-->
-<%# end %>
