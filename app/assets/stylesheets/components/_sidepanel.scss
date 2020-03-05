@@ -1,14 +1,16 @@
 .sidepanel {
-  height: 100vh; /* Specify a height */
+  height: 89vh; /* Specify a height */
   width: 600px; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
+  position: absolute; /* Stay in place */
   z-index: 100; /* Stay on top */
-  top: 0;
+  top: 20;
   left: 0;
   background-color: #212A3C;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 81px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  background: rgba(48, 50, 72, 0.8);
+  box-shadow: 10px 4px 18px rgba(0, 0, 0, 0.65);
 }
 
 /* The sidepanel links */

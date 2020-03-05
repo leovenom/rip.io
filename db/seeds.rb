@@ -25,6 +25,7 @@ file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419
 attraction = Attraction.new(name: 'Cemitério',
   address: 'Rua do conde de Redondo, 91B',
   description: 'really dark cemitery',
+  text: "Breathtaking mausoleums dating back to the 1800's. Fascinating tour taken with Free Walking Tour guide. Very knowledgeable and quirky stories that admittedly are likely folklore. Highly recommend visiting this attraction in desirable Recoleta. Tourist traps located all around this famous location, but worth the hassle. We were there when a sudden monsoon hit, which made for some exciting preamble to the tour.",
   user: user)
 attraction.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
