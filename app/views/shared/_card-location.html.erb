@@ -17,6 +17,7 @@
  -->
 
 <!-- new cards -->
+<div class="container">
 <% @attractions.each do |attract| %>
   <%= link_to attraction_path(attract) do %>
 <div class="card d-flex justify-content-sm-center flex-column">
@@ -32,9 +33,9 @@
 </div>
   <% end %>
   <% end %>
+</div>
 
-
-
+<div class="container">
 <% @attractions.each do |attract| %>
   <%= link_to attraction_path(attract) do %>
 <div class="card d-flex justify-content-sm-center flex-column">
@@ -51,6 +52,7 @@
 </div>
   <% end %>
   <% end %>
+</div>
 
 
 

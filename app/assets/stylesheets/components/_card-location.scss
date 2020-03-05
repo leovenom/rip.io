@@ -2,12 +2,13 @@
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 20px 20px 20px 20px;
   border: 20px solid rgba(0, 0, 0, 0.0);
-  // width: 20rem;
-  max-width: 20rem;
+  display: flex;
+  width: 20rem;
   min-width: 18rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-left: 60px;
   margin-bottom: 20px;
+  margin-top: 40px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-title {
