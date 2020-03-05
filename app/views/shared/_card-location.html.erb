@@ -17,10 +17,14 @@
  -->
 
 <!-- new cards -->
+<div class="container">
 <% @attractions.each do |attract| %>
   <%= link_to attraction_path(attract) do %>
-<div class="card d-flex justify-content-sm-center flex-column">
-  <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Card image cap">
+<div class="">
+  <% if attract.photos.attached? %>
+  <% else %>
+  <%= image_tag "logo.png" %>
+    <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= attract.name %></h5>
       <p class="card-text"><%= attract.address %></p>
@@ -29,3 +33,44 @@
 </div>
   <% end %>
   <% end %>
+</div>
+
+<!-- <div class="container">
+<% @attractions.each do |attract| %>
+  <%= link_to attraction_path(attract) do %>
+<div class="d-flex justify-content-xs-center">
+  <% if attract.photos.attached? %>
+  <%= cl_image_tag attract.photos.first.key, class: "card-img-top"%>
+  <% else %>
+  <%= image_tag "logo.png" %>
+    <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= attract.name %></h5>
+      <p class="card-text"><%= attract.address %></p>
+      <p class="card-text"><%= attract.description %></p>
+  </div>
+</div>
+  <% end %>
+  <% end %>
+</div> -->
+
+
+
+
+  <!--Controls-->
+  <div class="controls-top">
+    <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i
+        class="fas fa-chevron-left"></i></a>
+    <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i
+        class="fas fa-chevron-right"></i></a>
+  </div>
+  <!--/.Controls-->
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
+    <% @attractions.first.photos.each_with_index  do |photo, index| %>
+    <li data-target="#carousel-example-multi" data-slide-to=" <% index %>"></li>
+  </ol>
+  <!--/.Indicators-->
+<% end %>

@@ -1,6 +1,4 @@
-<div class="section">
-  <div class="container form-group col-md-4 form-group col-md-4">
-      <br>
+  <div class="formulario container col-md-4 col-md-4 mb-0">
       <h2>Sign Up</h2>
       <br>
       <div>
@@ -18,7 +16,7 @@
                         autofocus: true,
                         input_html: { autocomplete: "last name" }%>
             <%= f.select :role,
-                        collection: ['user', 'guide'] %>
+                        role: ['user', 'guide'] %>
             <%= f.input :email,
                         required: true,
                         autofocus: true,
@@ -42,4 +40,4 @@
     </form>
   </div>
 </div>
-</div>
+<%= render 'shared/footer' %>

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get '/my_attractions', to: 'pages#my_attractions'
   get '/my_bookings', to: 'pages#my_bookings'
   get '/profile', to: 'pages#profile'
+  get '/be_a_guide', to: 'pages#be_a_guide'
   delete '/my_bookings', to: 'bookings#destroy', as: 'my_bookings_destroy'
 end

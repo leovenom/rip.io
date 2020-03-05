@@ -1,0 +1,43 @@
+#show_att {
+  margin-top: 100px;
+}
+
+.parag {
+  border-bottom: 0.1px solid #F4F4F4;
+}
+
+.img-card {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  border: 20px solid rgba(0, 0, 0, 0.0);
+  // width: 20rem;
+  max-width: 40rem;
+  min-width: 18rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 60px;
+  margin-bottom: 20px;
+}
+
+.top-card {
+  width: 900px;
+  height: 470px;
+  margin-top: 50px;
+}
+
+.card-show {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px 20px 20px 20px;
+  border: 20px solid rgba(0, 0, 0, 0.0);
+  // width: 20rem;
+  max-width: 20rem;
+  min-width: 18rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: -70px;
+  margin-bottom: 30px;
+  margin-left: 120px;
+}
+
+.card-guide {
+  width: 10rem;
+  height: 10rem;
+}
