@@ -26,4 +26,9 @@ class PagesController < ApplicationController
     @user.guide!
     authorize @user
   end
+
+  def my_personalities
+    @personalities = current_user.personalities
+    authorize @personalities
+  end
 end

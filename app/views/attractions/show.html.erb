@@ -1,7 +1,15 @@
-<div class="container">
-  <div class="top-card d-flex justify-content-center" style="width: 100%;">
-  <img class="card-img-top" src="https://res.cloudinary.com/dwppwrimk/image/upload/v1583418232/Chernobyl_Wide_dwxetb.png" alt="Card image cap">
-  </div>
+<div class="container top-card d-flex justify-content-center">
+    <% @attraction %>
+
+      <div class="card">
+        <% if @attraction.photos.attached? %>
+
+        <%= cl_image_tag (@attraction.photos.first.key), class:"card-img-top" %>
+        <% end %>
+      </div>
+</div>
+</div>
+
 
   <div class="show">
     <div class="row">
