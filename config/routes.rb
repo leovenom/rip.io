@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   resources :personalities
 
+  get '/my_personalities', to: 'pages#my_personalities'
 end
 

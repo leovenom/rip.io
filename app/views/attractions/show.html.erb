@@ -1,5 +1,13 @@
 <div class="container top-card d-flex justify-content-center">
-  <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Card image cap">
+    <% @attraction %>
+
+      <div class="card">
+        <% if @attraction.photos.attached? %>
+
+        <%= cl_image_tag (@attraction.photos.first.key), class:"card-img-top" %>
+        <% end %>
+      </div>
+</div>
 </div>
 
 <div class="container d-flex bd-highlight" id="show_att">
