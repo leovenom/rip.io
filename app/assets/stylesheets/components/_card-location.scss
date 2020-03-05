@@ -3,18 +3,23 @@
   border-radius: 20px 20px 20px 20px;
   border: 20px solid rgba(0, 0, 0, 0.0);
   display: flex;
-  width: 18rem;
+  width: 288px;
   // min-width: 18rem;
   // margin-left: 60px;
   margin-bottom: 20px;
   margin-top: 40px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 }
 
 .card-title {
   color: #636a7c;
 }
 
+.card-img-top {
+  height: 306px;
+  object-fit: cover;
+}
 
 // .card-trip {
 //   overflow: hidden;

@@ -69,8 +69,8 @@
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
-    <% @attractions.first.photos.each_with_index  do |photo, index| %>
-    <li data-target="#carousel-example-multi" data-slide-to=" <% index %>"></li>
+    <%# @attractions.photos.first.key.each_with_index  do |photo, index| %>
+    <li data-target="#carousel-example-multi" data-slide-to=" <%# index %>"></li>
   </ol>
   <!--/.Indicators-->
-<% end %>
+<%# end %>
