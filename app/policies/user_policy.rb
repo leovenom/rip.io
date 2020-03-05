@@ -9,4 +9,7 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def be_a_guide?
+    true
+  end
 end
