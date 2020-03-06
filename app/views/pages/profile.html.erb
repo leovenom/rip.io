@@ -5,8 +5,8 @@
   <br />
   <br />
     <div class="col-md-3">
-      <div class="image">
-        <%= gravatar_image_tag(current_user.email) %>
+      <div class="profile_picture">
+        <%= cl_image_tag current_user.profile_picture.key, height: 250 %>
       </div>
     </div>
 

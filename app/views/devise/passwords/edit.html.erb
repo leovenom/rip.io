@@ -9,6 +9,7 @@
     <%= f.full_error :reset_password_token %>
 
     <div class="form-inputs">
+      <%= f.input :profile_picture, as: :file, input_html: { multiple: false } %>
       <%= f.input :password,
                   label: "New password",
                   required: true,
