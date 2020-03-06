@@ -8,8 +8,13 @@
   // margin-left: 60px;
   margin-bottom: 20px;
   margin-top: 40px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+  &:hover {
+    background: #64627b;
+    color: white;
+    color: #3E465A;
+  }
 }
 
 .card-title {

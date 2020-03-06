@@ -1,13 +1,19 @@
 .mapboxgl-popup {
-  max-width: 200px;
+  width: 150px;
 }
 
 .mapboxgl-popup-content {
+  color: black;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   h2 {
-    font-size: 12px;
+    font-size: 20px;
   }
+}
+
+#map {
+  position: sticky;
+  top: 0;
 }
 
 .card-product {
@@ -20,6 +26,12 @@
   border-radius: 20px;
   margin-bottom: 15px;
   color: #fff;
+  transition: background 0.3s ease;
+  &:hover {
+    background: #64627b;
+    color: white;
+    color: #fff;
+  }
 }
 
 .card-product img {
@@ -44,4 +56,12 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+#index-title {
+    color: #fff;
 }
