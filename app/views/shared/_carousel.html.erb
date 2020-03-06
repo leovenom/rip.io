@@ -1,7 +1,7 @@
 <div class="container col-lg-10">
   <div class="row align-items-stretch justify-content-around">
       <% @attractions.each do |attract| %>
-        <div class="card">
+        <div id="home-card" class="card">
           <%= link_to attraction_path(attract) do %>
           <% if attract.photos.attached? %>
           <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
