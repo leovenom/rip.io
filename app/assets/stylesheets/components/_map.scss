@@ -26,6 +26,12 @@
   border-radius: 20px;
   margin-bottom: 15px;
   color: #fff;
+  transition: background 0.3s ease;
+  &:hover {
+    background: #64627b;
+    color: white;
+    color: #fff;
+  }
 }
 
 .card-product img {
@@ -50,4 +56,12 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+#index-title {
+    color: #fff;
 }
