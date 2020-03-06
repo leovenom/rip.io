@@ -17,8 +17,7 @@
           <%= link_to attraction_path(attract) do %>
         <div class="card-product">
             <% if attract.photos.attached? %>
-            <% else %>
-            <%= image_tag "logo.png" %>
+            <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
             <% end %>
           <div class="card-product-infos">
             <h5 class="card-title"><%= attract.name %></h5>
