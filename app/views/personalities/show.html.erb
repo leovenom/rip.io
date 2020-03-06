@@ -1,45 +1,35 @@
-<div class="container top-card d-flex justify-content-center">
-  <% @personality %>
+<br>
+<br>
+<div class="container justify-content-center">
+  <div class="">
+    <% @personality %>
 
-      <div class="card">
+      <div class="card mr-5">
         <% if @personality.photos.attached? %>
 
         <%= cl_image_tag (@personality.photos.first.key), class:"card-img-top" %>
         <% end %>
       </div>
-</div>
 
-<div class="container d-flex bd-highlight" id="show_att">
-  <div class="row">
-      <div class="col-lg-6">
-        <div class="card-show" style="width: 100%;">
+    <div class="row justify-content-center">
+        <div class="card" style="width: 100%;">
           <div class="card-body">
-                <h5 class="card-title parag">
-                  <%= @personality.name %>
-                </h5>
-                <h6 class="parag">
-                  Address:
-                  <%= @personality.address %>
-                </h6>
-                <p class="card-text parag">
-                  Description:
-                 <%= @personality.description %>
-                </p>
+            <h5 class="card-title">
+              <%= @personality.name %>
+            </h5>
+              <%= @personality.address %>
+            </h6>
+            <p class="card-text">
+              Description:
+              <%= @personality.description %>
+            </p>
+            <p class="card-text">
+              text:
+              <%= @personality.text %>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card-show card-guide">
-          <%= "Guide" %>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card-show card-guide">
-          <%= "Guide" %>
-        </div>
-      </div>
-    </div>
-
+   </div>
 </div>
 
+</div>
 <%= render "shared/footer" %>
