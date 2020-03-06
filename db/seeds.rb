@@ -21,13 +21,13 @@ user = User.create(first_name: 'user', last_name: 'one', email: 'email@email.com
 
 puts 'creating attractions'
 
-file = URI.open('https://nit.pt/wp-content/uploads/2019/01/2fe6766a6b2f487e07c03af228aca558-754x394.jpg')
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 attraction = Attraction.new(name: 'Cemitério',
-  address: 'Praça São João Bosco 568, Lisboa',
+  address: 'Rua do conde de Redondo, 91B',
   description: 'really dark cemitery',
   text: "Breathtaking mausoleums dating back to the 1800's. Fascinating tour taken with Free Walking Tour guide. Very knowledgeable and quirky stories that admittedly are likely folklore. Highly recommend visiting this attraction in desirable Recoleta. Tourist traps located all around this famous location, but worth the hassle. We were there when a sudden monsoon hit, which made for some exciting preamble to the tour.",
   user: user)
-attraction.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
+attraction.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 attraction.save
 
