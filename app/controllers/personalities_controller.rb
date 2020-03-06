@@ -21,7 +21,6 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
     # end
 
     @markers = @personalities.map do |personality|
-      
       {
         lat: personality.latitude,
         lng: personality.longitude,
@@ -55,9 +54,20 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
   def destroy
     authorize @personality
   if @personality.destroy
-      redirect_to personality_path, notice: "Attraction was successfully destroyed"
+      redirect_to my_personalities_path, notice: "Attraction was successfully destroyed"
   else
       puts @personality.errors.messages
+    end
+  end
+
+  def update
+    authorize @personality
+    if @personality.update(personality_params)
+      @personality.save
+      redirect_to personality_path
+    else
+      puts @personality.errors.messages
+      render :edit
     end
   end
 
