@@ -6,6 +6,7 @@
         <th scope="col">Name</th>
         <th scope="col">Description</th>
         <th scope="col">Address</th>
+        <th  scope="col">text</th >
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
       </tr>
@@ -18,6 +19,7 @@
         <td><%= attraction.name %></td>
         <td><%= attraction.description %></td>
         <td><%= attraction.address %></td>
+        <td><%= attraction.text %></td>
         <td><%= link_to "Edit", edit_attraction_path(attraction), class: "btn btn-outline-secondary" %></td>
         <td><%= link_to "Delete", attraction_path(attraction), method: :delete, class: "btn btn-outline-danger" %></td>
       </tr>
