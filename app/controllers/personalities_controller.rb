@@ -7,14 +7,20 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
   end
 
   def index
-    @personalities =  Personality.all
-    if params[:search].present? && params[:search][:query].present?
+      if params[:search].present? && params[:search][:query].present?
       @personalities = policy_scope(Personality).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
+      @personalities_name = policy_scope(Personality).where("name ILIKE '%#{params[:search][:query]}%'").geocoded
+      @personalities += @personalities_name
+      @personalities.uniq!
     else
       @personalities = policy_scope(Personality).order(created_at: :desc).geocoded
     end
+    #  @personalities =  Personality.all
+    # if params[:search].present? && params[:search][:query].present?
+    #   @personalities = policy_scope(Personality).where("address ILIKE '%#{params[:search][:query]}%'").geocoded.or(policy_scope(Personality).where("name ILIKE '%#{params[:search][:query]}%'"))
+    # end
 
-    @markers = @personalities.map do |personalite|
+    @markers = @personalities.map do |personality|
       {
         lat: personality.latitude,
         lng: personality.longitude
