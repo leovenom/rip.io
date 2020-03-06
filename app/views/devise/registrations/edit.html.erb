@@ -10,6 +10,7 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
+      <%= f.input :profile_picture, as: :file, input_html: { multiple: false } %>
 
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",
