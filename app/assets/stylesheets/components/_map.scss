@@ -1,0 +1,67 @@
+.mapboxgl-popup {
+  width: 150px;
+}
+
+.mapboxgl-popup-content {
+  color: black;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  h2 {
+    font-size: 20px;
+  }
+}
+
+#map {
+  position: sticky;
+  top: 0;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  color: #fff;
+  transition: background 0.3s ease;
+  &:hover {
+    background: #64627b;
+    color: white;
+    color: #fff;
+  }
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+#index-title {
+    color: #fff;
+}

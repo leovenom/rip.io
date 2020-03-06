@@ -1,47 +1,32 @@
 <div class="container top-card d-flex justify-content-center">
     <% @attraction %>
 
-      <div class="card">
+      <div class="card mr-5">
         <% if @attraction.photos.attached? %>
 
         <%= cl_image_tag (@attraction.photos.first.key), class:"card-img-top" %>
         <% end %>
       </div>
-</div>
-</div>
 
-<div class="show">
-  <div class="row">
-    <div class="col-sm">
-      <div class="card" style="width: 100%;">
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= @attraction.name %>
-          </h5>
-            <%= @attraction.address %>
-          </h6>
-          <p class="card-text">
-            <%= @attraction.description %>
-          </p>
+    <div class="row">
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= @attraction.name %>
+            </h5>
+              <%= @attraction.address %>
+            </h6>
+            <p class="card-text">
+              Description:
+              <%= @attraction.description %>
+            </p>
+            <p class="card-text">
+              text:
+              <%= @attraction.text %>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="col-sm">
-      <div class="card" style="width: 100%;">
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= @attraction.name %>
-          </h5>
-            <%= @attraction.address %>
-          </h6>
-          <p class="card-text">
-            <%= @attraction.description %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+   </div>
 
+
+</div>
 <%= render "shared/footer" %>
