@@ -19,8 +19,8 @@
         <td> <%= booking.start_date %> </td>
         <td> <%= tours.user_id %> </td>
         <td> <%= tours.price %> </td>
-        <td> <%= link_to "Edit", edit_locker_booking_path(booking.locker_id, booking.id), class: "btn btn-outline-secondary" %></td>
-        <td> <%= link_to "Delete", my_bookings_destroy_path, method: :delete, class: "btn btn-outline-danger" %></td>
+        <td> <%= link_to "Edit", edit_attraction_booking_path(booking.attraction_id, booking.id), class: "btn btn-outline-secondary" %></td>
+        <td> <%= link_to "Delete", bookings_path, method: :delete, class: "btn btn-outline-danger" %></td>
       </tr>
       <% count += 1 %>
       <% end %>

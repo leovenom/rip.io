@@ -14,10 +14,12 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
       @personalities = policy_scope(Personality).order(created_at: :desc).geocoded
     end
 
-    @markers = @personalities.map do |personalite|
+    @markers2 = @personalities.map do |personalite|
       {
         lat: personality.latitude,
-        lng: personality.longitude
+        lng: personality.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { personality: personality })
+
       }
     end
   end
@@ -39,8 +41,23 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
     end
   end
 
+    def edit
+    authorize @personality
+  end
+
+  def destroy
+    authorize @personality
+  if @personality.destroy
+      redirect_to personality_path, notice: "Attraction was successfully destroyed"
+  else
+      puts @personality.errors.messages
+    end
+  end
+
+  private
+
     def personality_params
-    params.require(:personality).permit(:name, :address, :description, :user_id, photos: [])
+    params.require(:personality).permit(:name, :address, :description, :user_id, :country, photos: [])
   end
 
 

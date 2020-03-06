@@ -4,6 +4,7 @@
       <%= personality.input :name %>
       <%= personality.input :address %>
       <%= personality.input :description %>
+
       <%= personality.input :photos, as: :file, input_html: { multiple: true } %>
       <%= personality.button :submit,"Add Personality", class: "btn btn-outline-secondary" %>
   <% end %>
