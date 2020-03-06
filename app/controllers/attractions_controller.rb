@@ -12,6 +12,15 @@ class AttractionsController < ApplicationController
     else
       @attractions = policy_scope(Attraction).order(created_at: :desc).geocoded
     end
+
+    if params[:search].present? && params[:search][:query].present?
+      @personalities = policy_scope(Personality).where("address ILIKE '%#{params[:search][:query]}%'")
+      @personalities_name = policy_scope(Personality).where("name ILIKE '%#{params[:search][:query]}%'")
+      @personalities += @personalities_name
+      @personalities.uniq!
+    else
+      @personalities = policy_scope(Personality).order(created_at: :desc)
+    end
     #  @attractions =  Attraction.all
     # if params[:search].present? && params[:search][:query].present?
     #   @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded.or(policy_scope(Attraction).where("name ILIKE '%#{params[:search][:query]}%'"))
@@ -21,9 +30,16 @@ class AttractionsController < ApplicationController
       {
         lat: attraction.latitude,
         lng: attraction.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { attraction: attraction })
       }
     end
+
+    @personality_markers = @personalities.map do |personality|
+      {
+        lat: personality.latitude,
+        lng: personality.longitude,
+      }
+    end
+    @markers += @personality_markers
   end
 
   def show
