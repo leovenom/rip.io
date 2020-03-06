@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized, only: :home
 
   def home
-    @attractions = policy_scope(Attractions).order(created_at: :desc)
+    @attractions = policy_scope(Attraction).order(created_at: :desc)
   end
 
   def my_bookings
