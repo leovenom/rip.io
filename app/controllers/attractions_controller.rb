@@ -6,7 +6,8 @@ class AttractionsController < ApplicationController
     if params[:search].present? && params[:search][:query].present?
       @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
       @attractions_name = policy_scope(Attraction).where("name ILIKE '%#{params[:search][:query]}%'").geocoded
-      @attractions += @attractions_name
+      @attractions_country = policy_scope(Attraction).where("country ILIKE '%#{params[:search][:query]}%'").geocoded
+      @attractions = @attractions_name + @attractions_country + @attractions
       @attractions.uniq!
     else
       @attractions = policy_scope(Attraction).order(created_at: :desc).geocoded
