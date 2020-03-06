@@ -30,6 +30,7 @@ class AttractionsController < ApplicationController
       {
         lat: attraction.latitude,
         lng: attraction.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { attraction: attraction })
       }
     end
 
@@ -37,6 +38,7 @@ class AttractionsController < ApplicationController
       {
         lat: personality.latitude,
         lng: personality.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { personality: personality })
       }
     end
     @markers += @personality_markers
