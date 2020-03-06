@@ -20,7 +20,7 @@
             <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
             <% end %>
           <div class="card-product-infos">
-            <h5 class="card-title"><%= attract.name %></h5>
+            <h5 id="index-title" class="card-title"><%= attract.name %></h5>
             <p class="card-text"><%= attract.address %></p>
             <p class="card-text"><%= attract.description %></p>
           </div>
