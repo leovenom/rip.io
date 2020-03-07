@@ -5,10 +5,12 @@
   width:100%;
   letter-spacing: 1px;
 }
+
 .navbar {
- background-image: rgba(255,255,255,0.2);
+ background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.0));
  z-index: 99;
  font-weight: bold;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -48,6 +50,8 @@
 
 .dropdown-menu {
     margin-top: 17px;
+    opacity: 0.6;
+    font-weight: bold;
 }
 
 #title {
