@@ -36,5 +36,6 @@ const initMapbox = () => {
   }
 };
 
+
 export { initMapbox };
 
