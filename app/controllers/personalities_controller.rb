@@ -53,16 +53,6 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
     authorize @personality
   end
 
-  def destroy
-    authorize @personality
-  if @personality.destroy
-      redirect_to my_personalities_path, notice: "Personality was successfully destroyed"
-
-  else
-      puts @personality.errors.messages
-    end
-  end
-
   def update
     authorize @personality
     if @personality.update(personality_params)
@@ -71,6 +61,16 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
     else
       puts @personality.errors.messages
       render :edit
+    end
+  end
+
+  def destroy
+    authorize @personality
+  if @personality.destroy
+      redirect_to my_personalities_path, notice: "Personality was successfully destroyed"
+
+  else
+      puts @personality.errors.messages
     end
   end
 

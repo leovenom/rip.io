@@ -31,4 +31,5 @@ class PagesController < ApplicationController
     @personalities = current_user.personalities
     authorize @personalities
   end
+
 end
