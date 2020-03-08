@@ -9,7 +9,6 @@
 .navbar {
  background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.0));
  z-index: 99;
- font-weight: bold;
  position: fixed;
 
 }
@@ -57,4 +56,10 @@
 
 #title {
   font-size: 30px;
+}
+
+.navbar h3 {
+  font-weight: bold;
+  margin-left: 20px;
+  letter-spacing: 3px;
 }
