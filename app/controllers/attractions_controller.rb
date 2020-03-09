@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [ :edit, :update, :destroy]
+  before_action :set_attraction, only: [ :edit, :update, :destroy, :upvote, :downvote]
 
   def index
     if params[:search].present? && params[:search][:query].present?
@@ -90,6 +90,17 @@ class AttractionsController < ApplicationController
     end
   end
 
+  #upvote_from_user
+  def upvote
+    @attraction.upvote_from current_user
+    redirect_to attractions_path
+  end
+
+  #downvote_from_user
+  def downvote
+    @attraction.downvote_from current_user
+    redirect_to attractions_path
+  end
 
   private
 

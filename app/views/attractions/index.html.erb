@@ -24,6 +24,10 @@
             <p class="card-text"><%= attract.address %></p>
             <p class="card-text"><%= attract.description %></p>
           </div>
+          <%= link_to like_link_path(link), method: :put do %>
+          Upvote
+          <%= link.get_upvotes.size %>
+          <% end %>
         </div>
         <% end %>
         </div>
