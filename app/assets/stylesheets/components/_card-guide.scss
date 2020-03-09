@@ -33,11 +33,16 @@
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
+  right: -15px;
+  top: -15px;
   width: 40px;
 }
 
 .btn {
   font-size: 12px;
 }
+
+.min-width-card{
+  min-width: 85%;
+}
+
