@@ -39,7 +39,8 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
   def create
     @personality = Personality.new(personality_params)
     @personality.user = current_user
-    @personality.country = Geocoder.search(personality_params[:address]).first.country
+    # @personality.country = Geocoder.search(personality_params[:address]).first.country
+
     authorize @personality
 
     if @personality.save!

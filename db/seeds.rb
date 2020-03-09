@@ -11,6 +11,7 @@ require "open-uri"
 
 puts 'Destroying data'
 
+Personality.destroy_all
 Attraction.destroy_all
 Tour.destroy_all
 User.destroy_all
@@ -21,15 +22,49 @@ user = User.create(first_name: 'user', last_name: 'one', email: 'email@email.com
 
 puts 'creating attractions'
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-attraction = Attraction.new(name: 'Cemitério',
-  address: 'Rua do conde de Redondo, 91B',
-  description: 'really dark cemitery',
-  text: "Breathtaking mausoleums dating back to the 1800's. Fascinating tour taken with Free Walking Tour guide. Very knowledgeable and quirky stories that admittedly are likely folklore. Highly recommend visiting this attraction in desirable Recoleta. Tourist traps located all around this famous location, but worth the hassle. We were there when a sudden monsoon hit, which made for some exciting preamble to the tour.",
-  user: user)
-attraction.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+nomes = %w(Cemitery Reap Mausoleum Hospital Catacomb Casket CoronaVirus Javascript)
+
+address = %W([
+  {
+    "address": "Rua de Arroios 85",
+    "city": "Lisboa",
+    "Country": "portugal"
+  },
+  {
+    "address": "Conde de Baependi 79",
+    "city": "Rio de Janeiro",
+    "Country": "Brasil"
+  },
+  {
+    "address": "Rua dom silverio 86",
+    "city": "Mariana",
+    "Country": "Brasil"
+  },
+  {
+    "address": "Rua conde do redondo 91",
+    "city": "Lisboa",
+    "Country": "Portugal"}
+  ])
+
+10.times do
+
+
+
+ url = 'https://baconipsum.com/api/?type=meat-and-filler'
+ user_serialized = open(url).read
+ bacon = JSON.parse(user_serialized)
+ byebug
+
+file = URI.open('https://placeimg.com/640/480/any')
+attraction = Attraction.new(name: nomes.sample,
+  address: nomes.sample,
+  description: bacon.first.partition(" ").first,
+  text: bacon.first
+  user: user
+attraction.photos.attach(io: file, filename: 'picsum.jpg', content_type: 'image/jpg')
 
 
 attraction.save
+end
 
 puts 'done'

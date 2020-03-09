@@ -12,50 +12,54 @@
           </form>
         </div>
       </div>
+
       <div class="cards">
         <% @attractions.each do |attract| %>
-        <%= link_to attraction_path(attract) do %>
-        <div class="card-product">
-          <% if attract.photos.attached? %>
-          <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
+          <%= link_to attraction_path(attract), class: "card-product" do %>
+            <div class="">
+              <% if attract.photos.attached? %>
+                <%= cl_image_tag (attract.photos.first.key), class:"" %>
+              <% end %>
+              <div class="card-product-infos">
+                <h5 id="index-title" class="card-title"><%= attract.name %></h5>
+                <p class="card-text"><%= attract.address %></p>
+                <p class="card-text"><%= attract.description %></p>
+              </div>
+              <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.svg') %>" data-info="<%= attract.description %>">Butao</a>
+            </div>
           <% end %>
-          <div class="card-product-infos">
-            <h5 id="index-title" class="card-title"><%= attract.name %></h5>
-            <p class="card-text"><%= attract.address %></p>
-            <p class="card-text"><%= attract.description %></p>
-          </div>
-          <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.svg') %>" data-info="<%= attract.description %>">Butao</a>
-        </div>
         <% end %>
         </div>
-        <div class="cards">
-        <% end %>
+
+      <div class="cards">
         <% @personalities.each do |personality| %>
-        <%= link_to personality_path(personality) do %>
-        <div class="card-product">
-          <% if personality.photos.attached? %>
-          <%= cl_image_tag (personality.photos.first.key), class:"card-img-top"%>
+          <%= link_to personality_path(personality) do %>
+            <div class="card-product">
+              <% if personality.photos.attached? %>
+                <%= cl_image_tag (personality.photos.first.key), class:"card-img-top"%>
+              <% end %>
+              <div class="card-product-infos">
+                <h5 id="index-title" class="card-title"><%= personality.name %></h5>
+                <p class="card-text"><%= personality.address %></p>
+                <p class="card-text"><%= personality.description %></p>
+                <p class="card-text"><%= personality.text %></p>
+              </div>
+              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.svg') %>" data-info="<%= personality.description %>">Butao</a>
+            </div>
           <% end %>
-          <div class="card-product-infos">
-            <h5 id="index-title" class="card-title"><%= personality.name %></h5>
-            <p class="card-text"><%= personality.address %></p>
-            <p class="card-text"><%= personality.description %></p>
-            <p class="card-text"><%= personality.text %></p>
-          </div>
-          <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.svg') %>" data-info="<%= personality.description %>">Butao</a>
-        </div>
-        <% end %>
         <% end %>
       </div>
     </div>
+
     <div class="col-lg-6 col-md-6">
       <div class="">
-      <div
-      id="map"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+        <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
       </div>
     </div>
+
   </div>
 </div>

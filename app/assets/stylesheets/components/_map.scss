@@ -15,8 +15,8 @@
   position: fixed;
   height: 100vh;
   top: 0;
-  width: 662px;
-  height: 600px;
+  width: 832px;
+  height: 700px;
   margin-top: 110px;
   margin-bottom: 20px;
   display: flex;
@@ -39,7 +39,7 @@
   }
 }
 
-.card-product img {
+.card-product a img {
   height: 100%;
   width: 120px;
   object-fit: cover;

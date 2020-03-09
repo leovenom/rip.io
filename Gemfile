@@ -12,6 +12,7 @@ gem 'pundit'
 gem 'geocoder'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'acts_as_votable'
+gem 'money-rails'
 
 
 gem 'autoprefixer-rails'
