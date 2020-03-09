@@ -92,14 +92,16 @@ class AttractionsController < ApplicationController
 
   #upvote_from_user
   def upvote
-    @attraction.upvote_from current_user
-    redirect_to attractions_path
+    @attraction = Attraction.find(params[:id])
+    @attraction.upvote_by current_user
+    redirect_to :back
   end
 
   #downvote_from_user
   def downvote
-    @attraction.downvote_from current_user
-    redirect_to attractions_path
+    @attraction = Attraction.find(params[:id])
+    @attraction.downvote_by current_user
+    redirect_to :back
   end
 
   private

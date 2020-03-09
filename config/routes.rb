@@ -3,11 +3,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-
-
   resources :attractions do
     resources :bookings
     resources :guides, only: [:index, :show, :update]
+  end
+
+  resources :links do
+    member do
+      put "like", to: "links#upvote"
+      put "dislike", to: "links#downvote"
+    end
   end
 
   get '/my_attractions', to: 'pages#my_attractions'

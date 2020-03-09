@@ -23,11 +23,9 @@
             <h5 id="index-title" class="card-title"><%= attract.name %></h5>
             <p class="card-text"><%= attract.address %></p>
             <p class="card-text"><%= attract.description %></p>
+            <p class="like-button"><%= attraction.get_upvotes.size %></p>
           </div>
-          <%= link_to like_link_path(link), method: :put do %>
-          Upvote
-          <%= link.get_upvotes.size %>
-          <% end %>
+          </div>
         </div>
         <% end %>
         </div>

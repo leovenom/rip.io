@@ -1,5 +1,6 @@
 class Attraction < ApplicationRecord
   belongs_to :user
+  acts_as_votable
   has_many :personalities
   has_many :attractions_tours
   geocoded_by :address

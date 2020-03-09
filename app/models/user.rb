@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :personalities
   has_many :bookings
   has_one_attached :profile_picture
+  acts_as_voter
 
   enum role: [:user, :guide, :admin]
 
