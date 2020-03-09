@@ -12,7 +12,20 @@
           </form>
         </div>
       </div>
-
+      <div class="filter d-flex justify-content-around">
+        <form action="/attractions" method="get" style="
+            display: flex;
+            align-items: start;">
+            <input type="hidden" id="chosen" name="chosen" value="attractions"><br><br>
+            <input type="submit" class="btn-ghost btn-sm" value="Attractions">
+        </form>
+        <form action="/attractions" method="get" style="
+            display: flex;
+            align-items: start;">
+            <input type="hidden" id="chosen" name="chosen" value="personalities"><br><br>
+            <input type="submit" class="btn-ghost btn-sm" value="Personalities">
+        </form>
+      </div>
       <div class="cards">
         <% @attractions.each do |attract| %>
           <%= link_to attraction_path(attract), class: "card-product" do %>

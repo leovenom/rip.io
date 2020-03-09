@@ -9,15 +9,18 @@ class AttractionsController < ApplicationController
       @attractions_country = policy_scope(Attraction).where("country ILIKE '%#{params[:search][:query]}%'").geocoded
       @attractions = @attractions_name + @attractions_country + @attractions
       @attractions.uniq!
+    elsif params[:chosen] == "personalities"
+      @attractions = []
     else
       @attractions = policy_scope(Attraction).order(created_at: :desc).geocoded
     end
-
     if params[:search].present? && params[:search][:query].present?
       @personalities = policy_scope(Personality).where("address ILIKE '%#{params[:search][:query]}%'")
       @personalities_name = policy_scope(Personality).where("name ILIKE '%#{params[:search][:query]}%'")
       @personalities += @personalities_name
       @personalities.uniq!
+    elsif params[:chosen] == "attractions"
+      @personalities = []
     else
       @personalities = policy_scope(Personality).order(created_at: :desc).geocoded
     end
@@ -92,7 +95,7 @@ class AttractionsController < ApplicationController
         puts @attraction.errors.messages
     end
   end
-  
+
   #upvote_from_user
   def upvote
     @attraction.upvote_from current_user
