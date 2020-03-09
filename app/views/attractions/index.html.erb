@@ -12,6 +12,16 @@
           </form>
         </div>
       </div>
+      <div class="filter">
+        <form action="/attractions" method="get">
+            <input type="hidden" id="chosen" name="chosen" value="attractions"><br><br>
+            <input type="submit" class="btn-ghost" value="Attractions">
+        </form>
+        <form action="/attractions" method="get">
+            <input type="hidden" id="chosen" name="chosen" value="personalities"><br><br>
+            <input type="submit" class="btn-ghost" value="Personalities">
+        </form>
+      </div>
       <div class="cards">
         <% @attractions.each do |attract| %>
         <%= link_to attraction_path(attract) do %>
