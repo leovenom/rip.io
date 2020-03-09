@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @attractions = policy_scope(Attraction).order(created_at: :desc)
+    @personalities = policy_scope(Personality).order(created_at: :desc)
   end
 
   def my_bookings
