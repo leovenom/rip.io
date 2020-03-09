@@ -11,6 +11,7 @@ gem 'redis'
 gem 'pundit'
 gem 'geocoder'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'jquery-slick-rails', '~> 1.9'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
