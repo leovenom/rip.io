@@ -4,11 +4,6 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-trip:hover{
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-}
-
 .card-trip > img {
   height: 200px;
   width: 100%;
@@ -27,6 +22,7 @@
   margin: 0;
 }
 
+
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -37,11 +33,16 @@
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
+  right: -15px;
+  top: -15px;
   width: 40px;
 }
 
 .btn {
   font-size: 12px;
 }
+
+.min-width-card{
+  min-width: 85%;
+}
+

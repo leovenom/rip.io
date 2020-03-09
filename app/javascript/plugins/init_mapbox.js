@@ -80,5 +80,6 @@ const initMapbox = () => {
   }
 };
 
+
 export { initMapbox };
 export { updateMap };

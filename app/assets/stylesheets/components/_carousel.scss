@@ -5,3 +5,10 @@
     object-fit: cover;
   }
 }
+
+.carousel-control-next {
+    right: -110px;
+}
+.carousel-control-prev {
+    left: -110px;
+}

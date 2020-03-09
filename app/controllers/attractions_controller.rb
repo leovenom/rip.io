@@ -1,8 +1,7 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [ :edit, :update, :destroy]
+  before_action :set_attraction, only: [ :edit, :update, :destroy, :upvote, :downvote]
 
   def index
-     #@attractions =  Attraction.all
     if params[:search].present? && params[:search][:query].present?
       @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
       @attractions_name = policy_scope(Attraction).where("name ILIKE '%#{params[:search][:query]}%'").geocoded
@@ -90,6 +89,18 @@ class AttractionsController < ApplicationController
   else
       puts @attraction.errors.messages
     end
+  end
+  
+  #upvote_from_user
+  def upvote
+    @attraction.upvote_from current_user
+    redirect_to attractions_path
+  end
+
+  #downvote_from_user
+  def downvote
+    @attraction.downvote_from current_user
+    redirect_to attractions_path
   end
 
   private

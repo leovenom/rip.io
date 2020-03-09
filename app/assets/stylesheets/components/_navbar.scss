@@ -5,10 +5,12 @@
   width:100%;
   letter-spacing: 1px;
 }
+
 .navbar {
- background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.0));
+ background-image: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.0));
  z-index: 99;
- font-weight: bold;
+ position: fixed;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -48,8 +50,16 @@
 
 .dropdown-menu {
     margin-top: 17px;
+    opacity: 0.8;
+    font-weight: bold;
 }
 
 #title {
   font-size: 30px;
+}
+
+.navbar h3 {
+  font-weight: bolder;
+  margin-left: 35px;
+  letter-spacing: 2px;
 }

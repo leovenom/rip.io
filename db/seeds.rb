@@ -29,6 +29,7 @@ attraction = Attraction.new(name: 'Cemitério',
   user: user)
 attraction.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
+
 attraction.save
 
 puts 'done'

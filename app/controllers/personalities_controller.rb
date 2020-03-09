@@ -10,7 +10,8 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
       if params[:search].present? && params[:search][:query].present?
       @personalities = policy_scope(Personality).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
       @personalities_name = policy_scope(Personality).where("name ILIKE '%#{params[:search][:query]}%'").geocoded
-      @personalities += @personalities_name
+      @personalities_country = policy_scope(Personality).where("country ILIKE '%#{params[:search][:query]}%'").geocoded
+      @personalities = @personalities_name + @personalities_country + @personalities
       @personalities.uniq!
     else
       @personalities = policy_scope(Personality).order(created_at: :desc).geocoded
@@ -52,15 +53,6 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
     authorize @personality
   end
 
-  def destroy
-    authorize @personality
-  if @personality.destroy
-      redirect_to my_personalities_path, notice: "Attraction was successfully destroyed"
-  else
-      puts @personality.errors.messages
-    end
-  end
-
   def update
     authorize @personality
     if @personality.update(personality_params)
@@ -69,6 +61,16 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
     else
       puts @personality.errors.messages
       render :edit
+    end
+  end
+
+  def destroy
+    authorize @personality
+  if @personality.destroy
+      redirect_to my_personalities_path, notice: "Personality was successfully destroyed"
+
+  else
+      puts @personality.errors.messages
     end
   end
 

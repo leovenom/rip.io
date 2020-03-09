@@ -42,6 +42,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.12.1)
     arel (9.0.0)
     autoprefixer-rails (9.7.4)
       execjs
@@ -86,6 +87,8 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jquery-slick-rails (1.9.0)
+      railties (>= 3.1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -216,6 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable
   autoprefixer-rails
   bootsnap
   cloudinary (~> 1.12.0)
@@ -225,6 +229,7 @@ DEPENDENCIES
   geocoder
   gravatar_image_tag (~> 1.2)
   jbuilder (~> 2.0)
+  jquery-slick-rails (~> 1.9)
   listen (~> 3.0.5)
   pg (~> 0.21)
   pry-byebug

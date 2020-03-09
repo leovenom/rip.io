@@ -1,15 +1,14 @@
-<div class="container top-card d-flex justify-content-center">
+<div class="container justify-content-center pt-5">
     <% @attraction %>
 
-      <div class="card mr-5">
+      <div class="banner mr-5" style="width: 100%;">
         <% if @attraction.photos.attached? %>
 
-        <%= cl_image_tag (@attraction.photos.first.key), class:"card-img-top" %>
+        <%= cl_image_tag (@attraction.photos.first.key), class:"card-img-top-banner" %>
         <% end %>
       </div>
-
-    <div class="row justify-content-center">
-        <div class="card" style="width: 100%;">
+<div class="d-flex min-vw-80">
+    <div class="row justify-content-center min-width-card">
           <div class="card-body">
             <h5 class="card-title">
               <%= @attraction.name %>
@@ -22,11 +21,12 @@
             </p>
             <p class="card-text">
               text:
-              <%= @attraction.text %>
+              <%= @attraction.text %></p>
           </div>
-        </div>
-   </div>
+    </div>
+    <%= render 'shared/card-guide' %>
 
+</div>
 
 </div>
 <%= render "shared/footer" %>

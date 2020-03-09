@@ -1,51 +1,64 @@
-<div class="page-wrapper chiller-theme toggled">
-  <a id="show-sidebar" class="btn btn-sm btn-dark" href="#" onclick="openNav()">
-    <i class="fas fa-cross"></i>
-  </a>
-
-<div id="mySidepanel" class="sidepanel">
-  <div class="index-form">
-    <div class="search col-xs-10 col-sm-10 col-md-8 col-lg-6">
-      <form novalidate="novalidate" class="simple_form search " action="/attractions" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-        <div id="show-form" class="search-form-control form-group" style="opacity: 0.9">
-          <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-          <button name="button" type="submit" class="btn btn-outline-secondary">
-          <i class="fas fa-search"></i> Ripio Search
-          </button>
+<div class="container-fluid">
+  <div class="row" style="margin-top: 110px;">
+    <div class="tudo col-lg-6 col-md-6">
+      <div class="index-form">
+        <div class="search" style="padding-bottom: 0px; ">
+          <form novalidate="novalidate" class="simple_form search " action="/attractions" style="padding-bottom: 10px;" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <div id="show-form" class="search-form-control form-group">
+              <input class="form-control string required rounded-pill" type="text" name="search[query]" id="search_query" />
+              <button name="button" type="submit" class="btn btn-outline-secondary rounded-pill">
+                <i class="fas fa-search"></i>Search
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="cards">
+        <% @attractions.each do |attract| %>
+        <%= link_to attraction_path(attract) do %>
+        <div class="card-product">
+          <% if attract.photos.attached? %>
+          <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
+          <% end %>
+          <div class="card-product-infos">
+            <h5 id="index-title" class="card-title"><%= attract.name %></h5>
+            <p class="card-text"><%= attract.address %></p>
+            <p class="card-text"><%= attract.description %></p>
+          </div>
+        </div>
+        <% end %>
+        </div>
+        <div class="cards">
+        <% end %>
+        <% @personalities.each do |personality| %>
+        <%= link_to personality_path(personality) do %>
+        <div class="card-product">
+          <% if personality.photos.attached? %>
+          <%= cl_image_tag (personality.photos.first.key), class:"card-img-top"%>
+          <% end %>
+          <div class="card-product-infos">
+            <h5 id="index-title" class="card-title"><%= personality.name %></h5>
+            <p class="card-text"><%= personality.address %></p>
+            <p class="card-text"><%= personality.description %></p>
+            <p class="card-text"><%= personality.text %></p>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
     </div>
-  </form>
-  </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-6">
-    <div class="d-flex justify-content-between ml-4 mt-4">
-    <%= render 'shared/card-location'  %>
+    <div class="col-lg-6 col-md-6">
+      <div">
+      <div
+      id="map"
+      style="width: 100%;
+      height: 600px;
+      /*margin-top: 110px;*/
+      margin-bottom: 20px;
+      "
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
-</div>
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  </div>
 </div>
 </div>
-
-
-
-<script>
-  function openNav() {
-  document.getElementById("mySidepanel").style.width = "550px";
-};
-
-/* Set the width of the sidebar to 0 (hide it) */
-function closeNav() {
-  document.getElementById("mySidepanel").style.width = "0";
-};
-</script>
-
-<div
-  id="map"
-  style="width: 100%;
-  height: 700px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  z-index: 0;
-></div>
-
