@@ -1,19 +1,36 @@
-<div class="container mt-5">
-  <h3>Attractions</h3>
-  <div class="row justify-content-around align-items-center ">
-    <% @attractions.each do |attract| %>
-    <div id="home-card" class="card">
-      <%= link_to attraction_path(attract) do %>
-      <% if attract.photos.attached? %>
-      <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
-      <% end %>
-      <div class="card-body">
-        <h5 class="card-title"><%= attract.name %></h5>
-        <p class="card-text"><%= attract.address %></p>
-        <p class="card-text"><%= attract.description %></p>
+<div class="container">
+<div id="carouselControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @attractions.each_slice(3).with_index do |slice, index| %>
+      <div class="carousel-item <%= index.zero? ? "active" : "" %>">
+        <div class="row">
+          <% slice.each.with_index do |attract, idx| %>
+          <div class="col-4">
+            <div class="<%= card_classes(idx) %>">
+              <%= link_to attraction_path(attract) do %>
+                <% if attract.photos.attached? %>
+                  <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
+                <% end %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= attract.name %></h5>
+                  <p class="card-text"><%= attract.address %></p>
+                  <p class="card-text"><%= attract.description %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <% end %>
     <% end %>
   </div>
+  <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 </div>

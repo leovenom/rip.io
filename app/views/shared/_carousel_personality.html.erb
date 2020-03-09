@@ -1,19 +1,36 @@
-<div class="container mt-5">
-  <h3>Personalities</h3>
-  <div class="row justify-content-around align-items-center ">
-    <% @personalities.each do |personality| %>
-    <div id="home-card" class="card">
-      <%= link_to personality_path(personality) do %>
-      <% if personality.photos.attached? %>
-      <%= cl_image_tag (personality.photos.first.key), class:"card-img-top"%>
-      <% end %>
-      <div class="card-body">
-        <h5 id="index-title" class="card-title"><%= personality.name %></h5>
-        <p class="card-text"><%= personality.address %></p>
-        <p class="card-text"><%= personality.description %></p>
+<div class="container">
+<div id="personalityCarouselControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @personalities.each_slice(3).with_index do |slice, index| %>
+      <div class="carousel-item <%= index.zero? ? "active" : "" %>">
+        <div class="row">
+          <% slice.each_with_index do |personality, idx| %>
+          <div class="col-4">
+            <div class="<%= card_classes(idx) %>">
+              <%= link_to personality_path(personality) do %>
+                <% if personality.photos.attached? %>
+                  <%= cl_image_tag (personality.photos.first.key), class: "card-img-top"%>
+                <% end %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= personality.name %></h5>
+                  <p class="card-text"><%= personality.address %></p>
+                  <p class="card-text"><%= personality.description %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <% end %>
     <% end %>
   </div>
+  <a class="carousel-control-prev" href="#personalityCarouselControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#personalityCarouselControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 </div>

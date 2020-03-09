@@ -1,7 +1,6 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [ :edit, :update, :destroy]
+  before_action :set_attraction, only: [ :edit, :update, :destroy, :upvote, :downvote]
   before_action :check_if_guide, only: [:new, :create, :edit, :update]
-
 
   def index
     if params[:search].present? && params[:search][:query].present?
@@ -20,18 +19,18 @@ class AttractionsController < ApplicationController
       @personalities += @personalities_name
       @personalities.uniq!
     else
-      @personalities = policy_scope(Personality).order(created_at: :desc)
+      @personalities = policy_scope(Personality).order(created_at: :desc).geocoded
     end
     #  @attractions =  Attraction.all
     # if params[:search].present? && params[:search][:query].present?
     #   @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded.or(policy_scope(Attraction).where("name ILIKE '%#{params[:search][:query]}%'"))
     # end
-
     @markers = @attractions.map do |attraction|
       {
         lat: attraction.latitude,
         lng: attraction.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { attraction: attraction })
+        infoWindow: render_to_string(partial: "info_window", locals: { attraction: attraction }),
+        image_url: helpers.asset_url('rip-round-blue-50px.svg')
       }
     end
 
@@ -39,7 +38,8 @@ class AttractionsController < ApplicationController
       {
         lat: personality.latitude,
         lng: personality.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { personality: personality })
+        infoWindow: render_to_string(partial: "info_window", locals: { personality: personality }),
+        image_url: helpers.asset_url('death-round-blue-50px.svg')
       }
     end
     @markers += @personality_markers
@@ -92,7 +92,18 @@ class AttractionsController < ApplicationController
         puts @attraction.errors.messages
     end
   end
+  
+  #upvote_from_user
+  def upvote
+    @attraction.upvote_from current_user
+    redirect_to attractions_path
+  end
 
+  #downvote_from_user
+  def downvote
+    @attraction.downvote_from current_user
+    redirect_to attractions_path
+  end
 
   private
 

@@ -6,7 +6,11 @@
   <br />
     <div class="col-md-3">
       <div class="profile_picture">
-        <%= cl_image_tag current_user.profile_picture.key, height: 250 %>
+          <% if current_user.profile_picture.attached? %>
+          <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
+        <% end %>
       </div>
     </div>
 
