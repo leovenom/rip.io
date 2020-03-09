@@ -1,0 +1,19 @@
+<div class="container mt-5">
+  <h3>Personalities</h3>
+  <div class="row justify-content-around align-items-center ">
+    <% @personalities.each do |personality| %>
+    <div id="home-card" class="card">
+      <%= link_to personality_path(personality) do %>
+      <% if personality.photos.attached? %>
+      <%= cl_image_tag (personality.photos.first.key), class:"card-img-top"%>
+      <% end %>
+      <div class="card-body">
+        <h5 id="index-title" class="card-title"><%= personality.name %></h5>
+        <p class="card-text"><%= personality.address %></p>
+        <p class="card-text"><%= personality.description %></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

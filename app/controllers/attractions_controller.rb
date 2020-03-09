@@ -2,7 +2,6 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [ :edit, :update, :destroy]
 
   def index
-     #@attractions =  Attraction.all
     if params[:search].present? && params[:search][:query].present?
       @attractions = policy_scope(Attraction).where("address ILIKE '%#{params[:search][:query]}%'").geocoded
       @attractions_name = policy_scope(Attraction).where("name ILIKE '%#{params[:search][:query]}%'").geocoded

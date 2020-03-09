@@ -3,8 +3,9 @@
   box-sizing: border-box;
   color: #ffffff;
   display: block;
-  font-size: 19px;
+  font-size: 20px;
   padding: 40px 15px 20px;
+  letter-spacing: 1px;
 }
 
 .space-items {
@@ -35,7 +36,14 @@ hr {
   margin-left: 0;
 }
 
-.ripio2020 {
-  font-size: 14px;
-  margin-left: 45px;
+.ripio2020  {
+
+  margin-left: 35px;
+
+}
+
+#footer p {
+  font-size: 20px;
+  letter-spacing: 1px;
+  // font-weight: 500;
 }
