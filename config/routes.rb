@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -7,7 +8,16 @@ Rails.application.routes.draw do
 
   resources :attractions do
     resources :bookings
-    resources :guides, only: [:index, :show, :update]
+    resources :guides, only: [:index, :show, :update] do
+      resources :tours
+    end
+  end
+
+    resources :personalities do
+    resources :bookings
+    resources :guides, only: [:index, :show, :update] do
+      resources :tours
+    end
   end
 
   get '/my_attractions', to: 'pages#my_attractions'
@@ -17,10 +27,6 @@ Rails.application.routes.draw do
   delete '/my_bookings', to: 'bookings#destroy', as: 'my_bookings_destroy'
   patch 'update_to_guide', to: 'users#update_to_guide', as: 'update_to_guide'
 
-  resources :personalities do
-    resources :bookings
-    resources :guides, only: [:index, :show, :update]
-  end
 
   get '/my_personalities', to: 'pages#my_personalities'
 end

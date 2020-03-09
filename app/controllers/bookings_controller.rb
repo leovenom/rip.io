@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
 
-    @tour = Tout.find(params[:tour_id])
+    @tour = Tour.find(params[:tour_id])
     @booking.tour = @tour
     @booking.user = current_user
     authorize @booking
