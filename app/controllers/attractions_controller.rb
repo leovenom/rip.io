@@ -1,5 +1,6 @@
 class AttractionsController < ApplicationController
   before_action :set_attraction, only: [ :edit, :update, :destroy, :upvote, :downvote]
+  before_action :check_if_guide, only: [:new, :create, :edit, :update]
 
   def index
     if params[:search].present? && params[:search][:query].present?
@@ -61,6 +62,7 @@ class AttractionsController < ApplicationController
     authorize @attraction
 
     if @attraction.save!
+      byebug
       redirect_to attractions_path
     else
       render_errors
@@ -84,10 +86,10 @@ class AttractionsController < ApplicationController
 
   def destroy
     authorize @attraction
-  if @attraction.destroy
-      redirect_to my_attractions_path, notice: "Attraction was successfully destroyed"
-  else
-      puts @attraction.errors.messages
+    if @attraction.destroy
+        redirect_to my_attractions_path, notice: "Attraction was successfully destroyed"
+    else
+        puts @attraction.errors.messages
     end
   end
   
@@ -106,10 +108,14 @@ class AttractionsController < ApplicationController
   private
 
   def attraction_params
-    params.require(:attraction).permit(:name, :address, :description, :user_id, :country, photos: [])
+    params.require(:attraction).permit(:name, :address, :description, :user_id, :country, photos: [], tour_ids: [])
   end
-end
 
-def set_attraction
-    @attraction = Attraction.find(params[:id])
+  def set_attraction
+      @attraction = Attraction.find(params[:id])
+  end
+
+  def check_if_guide
+    redirect_to root_path, notice: "You have to be a guide to create a tour" unless current_user.role == "guide"
+  end
 end
