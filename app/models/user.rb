@@ -1,8 +1,11 @@
 class User < ApplicationRecord
-  has_many :tours, :class_name => 'Tour', :foreign_key => 'guide_id'
+  has_many :guided_tours, :class_name => 'Tour', source: 'User'
+
+  has_many :bookings
+  has_many :tours, through: :bookings
   has_many :attractions
   has_many :personalities
-  has_many :bookings
+
   has_one_attached :profile_picture
 
   enum role: [:user, :guide, :admin]
