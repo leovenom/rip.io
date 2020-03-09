@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+
+
   resources :attractions do
     resources :bookings
+    resources :guides, only: [:index, :show, :update]
   end
 
   get '/my_attractions', to: 'pages#my_attractions'
@@ -14,7 +17,10 @@ Rails.application.routes.draw do
   delete '/my_bookings', to: 'bookings#destroy', as: 'my_bookings_destroy'
   patch 'update_to_guide', to: 'users#update_to_guide', as: 'update_to_guide'
 
-  resources :personalities
+  resources :personalities do
+    resources :bookings
+    resources :guides, only: [:index, :show, :update]
+  end
 
   get '/my_personalities', to: 'pages#my_personalities'
 end
