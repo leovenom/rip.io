@@ -24,7 +24,6 @@ class ToursController < ApplicationController
     @tour.guide = current_user
 
     authorize @tour
-byebug
     if @tour.save
       redirect_to root_path, notice: 'Tour was successfully created.'
     else
