@@ -39,7 +39,9 @@
                 <p class="card-text"><%= attract.description %></p>
               </div>
               <div class="img-box" style="padding-right: 20px;">
-                <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('https://res.cloudinary.com/dmvgmogaf/image/upload/v1583864644/rip-round-blue-50px_jm4ybd.svg') %>" data-info="<%= attract.description %>"><img src="../assets/rip-round-blue-50px.svg" alt="Tomb" id="mini_icon"></a>
+                <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.png') %>" data-info="<%= attract.description %>">
+                  <%= image_tag 'rip-round-blue-50px.svg' alt: 'Tomb' %>
+                </a>
               </div>
             </div>
           <% end %>
@@ -59,7 +61,9 @@
                 <p class="card-text"><%= personality.address %></p>
                 <p class="card-text"><%= personality.description %></p>
               </div>
-              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('https://res.cloudinary.com/dmvgmogaf/image/upload/v1583864644/death-round-blue-50px_iqssnb.svg') %>" data-info="<%= personality.description %>"><img src="../assets/death-round-blue-50px.svg" alt="Death" id="mini_icon"></a>
+              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.png') %>" data-info="<%= personality.description %>">
+                <%= image_tag 'death-round-blue-50px.svg' alt: 'Death' %>
+              </a>
             </div>
           <% end %>
         <% end %>
