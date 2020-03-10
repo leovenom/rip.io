@@ -2,7 +2,7 @@
   <h1>Add Attraction</h1>
     <%= simple_form_for @attraction do |f| %>
       <%= f.input :name %>
-      <%= f.input :address %>
+      <%= f.input :address, placeholder: "Street/Country" %>
       <%= f.input :description %>
       <%= f.association :tours, as: :check_boxes %>
       <%= f.input :text, as: :text %>

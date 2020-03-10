@@ -40,8 +40,8 @@
 }
 
 .card-product a img {
-  height: 100%;
-  width: 120px;
+  height: 120px;
+  width: 130px;
   object-fit: cover;
 }
 
@@ -71,3 +71,11 @@ a:link {
     color: #fff;
 }
 
+#mini_icon {
+  width: 50px;
+  height: 50px;
+  &:hover {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+}
