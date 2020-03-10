@@ -110,7 +110,7 @@ class AttractionsController < ApplicationController
   private
 
   def attraction_params
-    params.require(:attraction).permit(:name, :address, :description, :user_id, :country, photos: [], tour_ids: [])
+    params.require(:attraction).permit(:name, :address, :description, :user_id, :text, :country, photos: [], tour_ids: [])
   end
 
   def set_attraction

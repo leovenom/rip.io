@@ -2,7 +2,7 @@
   <h1>Edit Attraction</h1>
     <%= simple_form_for @attraction do |f| %>
       <%= f.input :name %>
-      <%= f.input :address %>
+      <%= f.input :address, placeholder: "Street/Country" %>
       <%= f.input :description %>
       <%= f.input :text, as: :text %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>

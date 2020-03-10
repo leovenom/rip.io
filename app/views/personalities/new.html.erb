@@ -2,7 +2,8 @@
   <h1>Add Personality</h1>
     <%= simple_form_for @personality do |personality| %>
       <%= personality.input :name %>
-      <%= personality.input :address %>
+      <%= personality.input :death_date, input_html: {class: "deathpicker"} %>
+      <%= personality.input :address, placeholder: "Street/Country" %>
       <%= personality.input :description %>
       <%= personality.input :text, as: :text %>
       <%= personality.input :photos, as: :file, input_html: { multiple: true } %>
