@@ -2,6 +2,7 @@
   <h1>Edit Personality</h1>
     <%= simple_form_for @personality do |personality| %>
       <%= personality.input :name %>
+      <%= personality.input :death_date, input_html: {class: "deathpicker"} %>
       <%= personality.input :address %>
       <%= personality.input :description %>
       <%= personality.input :text, as: :text %>

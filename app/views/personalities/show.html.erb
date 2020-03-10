@@ -13,13 +13,15 @@
         <h5 class="card-title">
           <%= @personality.name %>
         </h5>
-        <%= @personality.address %>
-      </h6>
-      <p class="card-text">
-        <%= @personality.description %>
-      </p>
-      <p class="card-text">
-        <%= @personality.text %></p>
+        <p class="card-text">
+          <%= @personality.death_date %>
+        </p>
+          <%= @personality.address %>
+        <p class="card-text">
+          <%= @personality.description %>
+        </p>
+        <p class="card-text">
+          <%= @personality.text %></p>
       </div>
     </div>
     <%= render 'shared/card-guide' %>

@@ -78,7 +78,7 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
   private
 
     def personality_params
-    params.require(:personality).permit(:name, :address, :description, :text, :user_id, :country, photos: [])
+    params.require(:personality).permit(:name, :address, :death_date, :description, :text, :user_id, :country, photos: [])
   end
 
 
