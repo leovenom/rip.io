@@ -15,14 +15,19 @@
         <h5 class="card-title">
           <%= @tour.name %>
         </h5>
-        <%= @attraction.address %>
-      </h6>
-      <p class="card-text">
-         <%= @attraction.description %>
-      </p>
-      <p class="card-text">
-        <%= @attraction.text %></p>
+          <%= @attraction.address %>
+        <p class="card-text">
+          <%= @attraction.description %>
+        </p>
+        <p class="card-text">
+          <%= @attraction.text %></p>
       </div>
+    </div>
+    <div class="calendar">
+      <%= simple_form_for @tour do |tour| %>
+      <%= tour.input :date, input_html: {class: "datepicker"} %>
+      <%= tour.button :submit,"Book", class: "btn btn-outline-secondary" %>
+      <% end %>
     </div>
     <%= render 'shared/card-guide' %>
 
@@ -35,11 +40,8 @@
         </div>
       </div>
 
+    </div>
   </div>
-</div>
-
-  </div>
-
 </div>
 
 <%= render "shared/footer" %>

@@ -8,6 +8,7 @@ class ToursController < ApplicationController
   end
 
   def show
+    @attraction = Attraction.find(params[:attraction_id])
     authorize @tour
   end
 

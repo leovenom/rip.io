@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_tour
-  before_action :find_review, only [:edit, :update, :destroy]
+  before_action :find_review, only: [:edit, :update, :destroy]
 
   def new
     @review = Review.new
