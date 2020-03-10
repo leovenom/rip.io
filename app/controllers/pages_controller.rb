@@ -31,4 +31,9 @@ class PagesController < ApplicationController
     @personalities = current_user.personalities
     authorize @personalities
   end
+
+  def my_tours
+    @tours = current_user.tours
+    authorize @tours
+  end
 end
