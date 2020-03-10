@@ -7,15 +7,17 @@
     margin-top: 50px;
 }
 
-.card-body .card-text p {
+#card-body-show .card-text p {
   width: 245px;
 }
 
 
-.card-body {
+#card-body-show {
 padding-left: -0px;
-display: -webkit-box;
--webkit-line-clamp: 3;
--webkit-box-orient: vertical;
-overflow: hidden;
+height: 50vh;
+line-height: 25px;
 }
+
+
+
+
