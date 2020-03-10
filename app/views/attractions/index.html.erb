@@ -39,7 +39,7 @@
                 <p class="card-text"><%= attract.description %></p>
               </div>
               <div class="img-box" style="padding-right: 20px;">
-                <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= image_path 'rip-round-blue-50px.svg' %>" data-info="<%= attract.description %>"><img src="../assets/rip-round-blue-50px.svg" alt="Tomb" id="mini_icon"></a>
+                <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.png') %>" data-info="<%= attract.description %>"><img src="../assets/rip-round-blue-50px.svg" alt="Tomb" id="mini_icon"></a>
               </div>
             </div>
           <% end %>
@@ -59,7 +59,7 @@
                 <p class="card-text"><%= personality.address %></p>
                 <p class="card-text"><%= personality.description %></p>
               </div>
-              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.svg') %>" data-info="<%= personality.description %>"><img src="../assets/death-round-blue-50px.svg" alt="Death" id="mini_icon"></a>
+              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.png') %>" data-info="<%= personality.description %>"><img src="../assets/death-round-blue-50px.svg" alt="Death" id="mini_icon"></a>
             </div>
           <% end %>
         <% end %>
