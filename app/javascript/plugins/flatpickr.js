@@ -7,6 +7,11 @@ const flat = () => {
   flatpickr(".datepicker", {
       mode: "range"
   })
+  flatpickr(".deathpicker", {
+      altInput: true,
+      altFormat: "F j, Y",
+      dateFormat: "Y-m-d",
+  })
 }
 
 export { flat };
