@@ -33,7 +33,7 @@ class PagesController < ApplicationController
     authorize @personalities
   end
 
-  def my_tour
+  def my_tours
     @tours = current_user.tours
     authorize @tours
   end

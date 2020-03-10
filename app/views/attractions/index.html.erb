@@ -12,24 +12,24 @@
           </form>
         </div>
       </div>
-      <div class="filter d-flex justify-content-around">
+      <div class="filter d-flex justify-content-end">
         <form action="/attractions" method="get" style="
             display: flex;
             align-items: start;">
             <input type="hidden" id="chosen" name="chosen" value="attractions"><br><br>
-            <input type="submit" class="btn-ghost btn-sm" value="Attractions">
+            <input type="submit" class="btn btn-outline-secondary btn-sm mr-2" value="Attractions">
         </form>
         <form action="/attractions" method="get" style="
             display: flex;
             align-items: start;">
             <input type="hidden" id="chosen" name="chosen" value="personalities"><br><br>
-            <input type="submit" class="btn-ghost btn-sm" value="Personalities">
+            <input type="submit" class="btn btn-outline-secondary btn-sm" value="Personalities">
         </form>
       </div>
       <div class="cards">
         <% @attractions.each do |attract| %>
           <%= link_to attraction_path(attract), class:"d-flex justify-content-center" do %>
-            <div class="card-product">
+            <div class="card-product d-flex" style="justify-content: space-between;">
               <% if attract.photos.attached? %>
                 <%= cl_image_tag (attract.photos.first.key), class:"" %>
               <% end %>
@@ -38,8 +38,10 @@
                 <p class="card-text"><%= attract.address %></p>
                 <p class="card-text"><%= attract.description %></p>
               </div>
-              <div class="img-box">
-                <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.svg') %>" data-info="<%= attract.description %>"><img src="../assets/rip-round-blue-50px.svg" alt="Tomb" id="mini_icon"></a>
+              <div class="img-box" style="padding-right: 20px;">
+                <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.png') %>" data-info="<%= attract.description %>">
+                  <%= image_tag 'rip-round-blue-50px.svg', alt: 'Tomb', class: 'mini_icon' %>
+                </a>
               </div>
             </div>
           <% end %>
@@ -59,7 +61,11 @@
                 <p class="card-text"><%= personality.address %></p>
                 <p class="card-text"><%= personality.description %></p>
               </div>
-              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.svg') %>" data-info="<%= personality.description %>"><img src="../assets/death-round-blue-50px.svg" alt="Death" id="mini_icon"></a>
+              <div class="img-box" style="padding-right: 20px;">
+              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.png') %>" data-info="<%= personality.description %>">
+                <%= image_tag 'death-round-blue-50px.svg', alt: 'Death', class: 'mini_icon' %>
+              </a>
+            </div>
             </div>
           <% end %>
         <% end %>

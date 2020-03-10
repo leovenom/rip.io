@@ -26,7 +26,7 @@ class ToursController < ApplicationController
     @tour.guide = current_user
 
     authorize @tour
-
+byebug
     if @tour.save
       redirect_to root_path, notice: 'Tour was successfully created.'
     else
@@ -64,7 +64,7 @@ private
   end
 
   def tour_params
-    params.require(:tour).permit(:price, :name, :description)
+    params.require(:tour).permit(:price, :name, :description, attraction_ids: [])
   end
 
   def set_tour

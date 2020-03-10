@@ -5,6 +5,8 @@
       <%= f.input :name %>
       <%= f.association :attractions, as: :check_boxes %>
       <%= f.input :price_cents, as: :string %>
+      <%= f.input :description %>
+      <%= f.association :attractions, as: :check_boxes, :checked => params[:attraction_id] %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit,"Add tour", class: "btn btn-outline-secondary" %>
   <% end %>
