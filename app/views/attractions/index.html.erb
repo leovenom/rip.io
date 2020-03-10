@@ -28,7 +28,7 @@
       </div>
       <div class="cards">
         <% @attractions.each do |attract| %>
-          <%= link_to attraction_path(attract) do %>
+          <%= link_to attraction_path(attract), class:"d-flex justify-content-center" do %>
             <div class="card-product">
               <% if attract.photos.attached? %>
                 <%= cl_image_tag (attract.photos.first.key), class:"" %>
@@ -38,7 +38,9 @@
                 <p class="card-text"><%= attract.address %></p>
                 <p class="card-text"><%= attract.description %></p>
               </div>
-              <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.svg') %>" data-info="<%= attract.description %>">Butao</a>
+              <div class="img-box">
+                <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.svg') %>" data-info="<%= attract.description %>"><img src="../assets/rip-round-blue-50px.svg" alt="Tomb" id="mini_icon"></a>
+              </div>
             </div>
           <% end %>
         <% end %>
@@ -46,7 +48,7 @@
 
       <div class="cards">
         <% @personalities.each do |personality| %>
-          <%= link_to personality_path(personality) do %>
+          <%= link_to personality_path(personality), class:"d-flex justify-content-center" do %>
             <div class="card-product">
               <% if personality.photos.attached? %>
                 <%= cl_image_tag (personality.photos.first.key), class:"card-img-top"%>
@@ -57,7 +59,7 @@
                 <p class="card-text"><%= personality.address %></p>
                 <p class="card-text"><%= personality.description %></p>
               </div>
-              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.svg') %>" data-info="<%= personality.description %>">Butao</a>
+              <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.svg') %>" data-info="<%= personality.description %>"><img src="../assets/death-round-blue-50px.svg" alt="Death" id="mini_icon"></a>
             </div>
           <% end %>
         <% end %>
