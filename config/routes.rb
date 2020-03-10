@@ -5,20 +5,20 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
+  resources :guides, only: [:index, :show, :update]
 
   resources :attractions do
-    resources :bookings
-    resources :guides, only: [:index, :show, :update] do
-      resources :tours
+      resources :tours do
+      resources :bookings
     end
   end
 
     resources :personalities do
-    resources :bookings
-    resources :guides, only: [:index, :show, :update] do
-      resources :tours
+      resources :tours do
+        resources :bookings
+      end
     end
-  end
+
 
   get '/my_attractions', to: 'pages#my_attractions'
   get '/my_bookings', to: 'pages#my_bookings'

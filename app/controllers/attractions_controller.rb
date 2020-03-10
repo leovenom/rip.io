@@ -65,7 +65,6 @@ class AttractionsController < ApplicationController
     authorize @attraction
 
     if @attraction.save!
-      byebug
       redirect_to attractions_path
     else
       render_errors

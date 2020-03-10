@@ -13,12 +13,15 @@ class ToursController < ApplicationController
 
   def new
     @tour = Tour.new
+    @attraction = Attraction.find(params[:attraction_id])
+    @guide = current_user
     authorize @tour
   end
 
   def create
     @tour = Tour.new(tour_params)
-    @tour.user = current_user
+    @attraction = Attraction.find(params[:attraction_id])
+    @tour.guide = current_user
 
     authorize @tour
 
