@@ -7,8 +7,11 @@
           <p>Tour Description</p>
           <p class="card-text"></p>
         </div>
-          <p class="card-text">
+        <p class="card-text">
 
           <h2 class="card-trip-pricing">€99.99</h2>
-    </div>
-  </div>
+          <% if current_user.role == 'guide' %>
+          <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary" %></td>
+          <% end %>
+        </div>
+      </div>
