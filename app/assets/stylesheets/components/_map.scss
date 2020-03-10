@@ -71,9 +71,10 @@ a:link {
     color: #fff;
 }
 
-#mini_icon {
+.card-product a .mini_icon {
   width: 50px;
   height: 50px;
+
   &:hover {
     opacity: 0.6;
     transition: opacity 0.3s ease;

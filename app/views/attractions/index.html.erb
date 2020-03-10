@@ -40,7 +40,7 @@
               </div>
               <div class="img-box" style="padding-right: 20px;">
                 <a href="#" class="location_btn" data-latitude="<%= attract.latitude %>" data-logitude="<%= attract.longitude %>" data-image="<%= asset_url('rip-round-blue-50px.png') %>" data-info="<%= attract.description %>">
-                  <%= image_tag 'rip-round-blue-50px.svg' alt: 'Tomb' %>
+                  <%= image_tag 'rip-round-blue-50px.svg', alt: 'Tomb', class: 'mini_icon' %>
                 </a>
               </div>
             </div>
@@ -62,7 +62,7 @@
                 <p class="card-text"><%= personality.description %></p>
               </div>
               <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.png') %>" data-info="<%= personality.description %>">
-                <%= image_tag 'death-round-blue-50px.svg' alt: 'Death' %>
+                <%= image_tag 'death-round-blue-50px.svg', alt: 'Death', class: 'mini_icon' %>
               </a>
             </div>
           <% end %>
@@ -82,4 +82,3 @@
 
   </div>
 </div>
-<div class=""></div>
