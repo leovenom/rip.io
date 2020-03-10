@@ -1,0 +1,12 @@
+<p><%= review.rating %></p>
+<p><%= review.comment %></p>
+
+<% if user_signed_in? %>
+  <% if review.user_id == current_user.id %>
+
+    <%= link_to "Edit", edit_tour_review_path(review.tour, review) %>
+    <%= link_to "Delete", tour_review_path(review.tour, review), method: :delete, data: { confirm: "Are You Sure?" } %>
+
+  <% end %>
+
+<% end %>

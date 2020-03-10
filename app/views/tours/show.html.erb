@@ -26,6 +26,18 @@
     </div>
     <%= render 'shared/card-guide' %>
 
+    <div class="row">
+      <div class="col-md-4">
+        <!-- For Reviews & Ratings -->
+        <%= render @tour.reviews %>
+        <div>
+          <%= link_to "Add Review", new_tour_review_path(@tour) %>
+        </div>
+      </div>
+
+  </div>
+</div>
+
   </div>
 
 </div>

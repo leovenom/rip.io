@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tours do
+    resources :reviews
+  end
+
   get '/my_attractions', to: 'pages#my_attractions'
   get '/my_bookings', to: 'pages#my_bookings'
   get '/profile', to: 'pages#profile'

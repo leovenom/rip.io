@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :tours, through: :bookings
   has_many :attractions
   has_many :personalities
+  has_many :reviews
 
   has_one_attached :profile_picture
 
