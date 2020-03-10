@@ -6,6 +6,7 @@
         <th scope="col">Name</th>
         <th scope="col">Description</th>
         <th scope="col">Address</th>
+        <th scope="col">Text</th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
       </tr>
@@ -19,6 +20,7 @@
           <td> <%= personality.name %> </td>
           <td> <%= personality.address %> </td>
           <td> <%= personality.description%></td>
+          <td><%= personality.text %></td>
           <td><%= link_to "Edit", edit_personality_path(personality), class: "btn btn-outline-secondary" %></td>
           <td><%= link_to "Delete", personality_path(personality), method: :delete, class: "btn btn-outline-danger" %></td>
         </tr>

@@ -1,2 +1,33 @@
-<h1>Tours#show</h1>
-<p>Find me in app/views/tours/show.html.erb</p>
+<h1>Tour show</h1>
+
+<div class="container justify-content-center pt-5">
+  <% @tour %>
+
+  <div class="banner mr-5" style="width: 100%;">
+    <% if @tour.photos.attached? %>
+
+    <%= cl_image_tag (@tour.photos.first.key), class:"card-img-top-banner" %>
+    <% end %>
+  </div>
+  <div class="d-flex min-vw-80">
+    <div class="row justify-content-center min-width-card">
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= @tour.name %>
+        </h5>
+        <%= @attraction.address %>
+      </h6>
+      <p class="card-text">
+         <%= @attraction.description %>
+      </p>
+      <p class="card-text">
+        <%= @attraction.text %></p>
+      </div>
+    </div>
+    <%= render 'shared/card-guide' %>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
