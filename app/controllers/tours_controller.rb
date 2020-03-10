@@ -3,8 +3,8 @@ class ToursController < ApplicationController
  before_action :check_if_guide, only: [:new, :create, :edit, :update]
 
   def index
-    @tour = Tour.all
-    @tour = policy_scope(Tour).order(created_at: :desc)
+    @tours = Tour.all
+    @tours = policy_scope(Tour).order(created_at: :desc)
   end
 
   def show

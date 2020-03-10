@@ -28,8 +28,8 @@
       </div>
       <div class="cards">
         <% @attractions.each do |attract| %>
-          <%= link_to attraction_path(attract), class: "card-product" do %>
-            <div>
+          <%= link_to attraction_path(attract) do %>
+            <div class="card-product">
               <% if attract.photos.attached? %>
                 <%= cl_image_tag (attract.photos.first.key), class:"" %>
               <% end %>
@@ -42,7 +42,7 @@
             </div>
           <% end %>
         <% end %>
-        </div>
+      </div>
 
       <div class="cards">
         <% @personalities.each do |personality| %>
@@ -55,7 +55,6 @@
                 <h5 id="index-title" class="card-title"><%= personality.name %></h5>
                 <p class="card-text"><%= personality.address %></p>
                 <p class="card-text"><%= personality.description %></p>
-                <p class="card-text"><%= personality.text %></p>
               </div>
               <a href="#" class="location_btn" data-latitude="<%= personality.latitude %>" data-logitude="<%= personality.longitude %>" data-image="<%= asset_url('death-round-blue-50px.svg') %>" data-info="<%= personality.description %>">Butao</a>
             </div>

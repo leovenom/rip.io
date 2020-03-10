@@ -6,6 +6,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { updateMap } from '../plugins/init_mapbox';
 
+import "../plugins/flatpickr"
 
 initMapbox();
 

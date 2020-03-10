@@ -1,2 +1,8 @@
-<h1>Tours#new</h1>
-<p>Find me in app/views/tours/new.html.erb</p>
+<div class="formulario container col-md-4">
+  <h1>Add Tours</h1>
+    <%= simple_form_for @tour do |f| %>
+      <%= f.input :name %>
+      <%= f.input :price %>
+      <%= f.button :submit,"Add tour", class: "btn btn-outline-secondary" %>
+  <% end %>
+</div>
