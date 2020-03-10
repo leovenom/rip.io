@@ -22,7 +22,8 @@
       <% end %>
   </div>
   <div class="d-flex flex-column pt-5">
-              <% if current_user.role == 'guide' %>
+
+              <% if current_user.present? && current_user.role == 'guide' %>
             <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
             <% end %>
     </div>
