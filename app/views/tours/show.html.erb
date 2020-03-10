@@ -1,8 +1,13 @@
-<h1>Tours#show</h1>
-<p>Find me in app/views/tours/show.html.erb</p>
+<div class="row">
+  <div class="col-md-4">
 
-<!-- For Reviews & Ratings -->
+    <!-- For Reviews & Ratings -->
 
-<div>
-  <%= link_to "Add Review", new_tour_review_path(@tour) %>
+    <%= render @tour.reviews %>
+
+    <div>
+      <%= link_to "Add Review", new_tour_review_path(@tour) %>
+    </div>
+
+  </div>
 </div>
