@@ -8,21 +8,19 @@ Rails.application.routes.draw do
   resources :guides, only: [:index, :show, :update]
 
   resources :attractions do
-      resources :tours do
-      resources :bookings
-    end
+    resources :tours
   end
 
-    resources :personalities do
-      resources :tours do
-        resources :bookings
-      end
-    end
-
+  resources :personalities do
+    resources :tours
+  end
 
   resources :tours do
     resources :reviews
+    resources :bookings, only: [:create]
   end
+
+  resources :bookings, only: [:edit, :update, :destroy]
 
   get '/my_attractions', to: 'pages#my_attractions'
   get '/my_bookings', to: 'pages#my_bookings'

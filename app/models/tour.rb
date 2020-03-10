@@ -6,5 +6,7 @@ class Tour < ApplicationRecord
   has_many :reviews
   has_many_attached :photos
 
+  monetize :price_cents
+
   validates :price, presence: true
 end

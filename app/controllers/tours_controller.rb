@@ -8,6 +8,8 @@ class ToursController < ApplicationController
   end
 
   def show
+    @tour = Tour.find(params[:id])
+    @booking = Booking.new
     authorize @tour
   end
 

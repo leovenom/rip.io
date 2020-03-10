@@ -1,2 +1,6 @@
-<h1>Tour show</h1>
-
+<div class="container justify-content-center pt-5">
+  <%= simple_form_for [@tour, @booking] do |f| %>
+      <%= f.input :book_date, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit,"Book", class: "btn btn-outline-secondary" %>
+  <% end %>
+</div>
