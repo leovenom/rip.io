@@ -1,3 +1,4 @@
+<div class="container">
   <div class="row min-width-card-guide">
     <div class="card">
       <div class="card-trip-infos">
@@ -11,8 +12,10 @@
 
           <h2 class="card-trip-pricing">€99.99</h2>
         </div>
-        <% if current_user.role == 'guide' %>
-          <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary" %></td>
-          <% end %>
       </div>
-
+    <div class="d-flex flex-column mb-3">
+      <% if current_user.role == 'guide' %>
+        <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
+      <% end %>
+    </div>
+</div>
