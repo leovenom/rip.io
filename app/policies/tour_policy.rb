@@ -9,7 +9,7 @@ class TourPolicy < ApplicationPolicy
     true
   end
 
-  def new?
+  def create?
     true
   end
 

@@ -23,6 +23,10 @@
     </div>
     <%= render 'shared/card-guide' %>
 
+    <% if current_user.role == 'guide' %>
+    <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-danger" %></td>
+    <% end %>
+
   </div>
 
 </div>
