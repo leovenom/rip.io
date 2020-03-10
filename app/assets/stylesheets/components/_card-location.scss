@@ -38,7 +38,11 @@
 
 .card-body{
     overflow: hidden;
-    height: 200px;
+    height: 150px;
     line-height: 25px;
     margin: 20px;
+    display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
   }
