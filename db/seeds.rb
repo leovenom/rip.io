@@ -53,11 +53,10 @@ address = %W([
  url = 'https://baconipsum.com/api/?type=meat-and-filler'
  user_serialized = open(url).read
  bacon = JSON.parse(user_serialized)
- byebug
 
 file = URI.open('https://placeimg.com/640/480/any')
 attraction = Attraction.new(name: nomes.sample,
-  address: nomes.sample,
+  address: address.sample,
   description: bacon.first.partition(" ").first,
   text: bacon.first
   user: user
