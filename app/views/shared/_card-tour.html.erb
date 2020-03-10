@@ -17,13 +17,13 @@
               <h2 class="card-trip-pricing">€<%= tour.price %></h2>
 
 
-
               <%= link_to "See details", attraction_tour_path(@attraction, tour), class: "btn btn-primary" %>
         </div>
-      </div>
-    <div class="d-flex flex-column mb-3">
-      <% if current_user.role == 'guide' %>
-        <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
       <% end %>
+
+      <div class=" d-flex align-items-end flex-column" style="width: 170px;">
+              <% if current_user.role == 'guide' %>
+            <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
+            <% end %>
     </div>
-</div>
+  </div>
