@@ -2,7 +2,6 @@
   <h1>Add Tour</h1>
     <%= simple_form_for @tour, url: attraction_tours_path(@attraction, @tour), method: :post do |f| %>
       <%= f.input :name %>
-      <%#= f.association :attractions, as: :check_boxes %>
       <%= f.input :price %>
       <%= f.input :description %>
       <%= f.association :attractions, as: :check_boxes, :checked => params[:attraction_id] %>

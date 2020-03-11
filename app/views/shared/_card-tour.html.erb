@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row min-width-card-guide">
     <% @attraction.tours.each do |tour| %>
-    <div class="card mr-4" style="width: 25%;">
+    <div class="card mr-4 card-limits">
       <div class="card-trip-infos">
         <h5 class="card-title pt-3">
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+           <% if current_user.profile_picture.attached? %>
+          <%= cl_image_tag current_user.profile_picture.key, class:"card-trip-user avatar-bordered" %>
+           <% else %>
+          <%= image_tag 'favicon.png', class:"card-trip-user avatar-bordered" %>
+        <% end %>
           <h4 class='card-overflow'><%= tour.name %></h4>
         </h5>
-          <p><%= tour.description %></p>
-          <p class="card-text-tour"></p>
+          <p class="card-text-tour card-overflow"> <%= tour.description %></p>
             <div >
               <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(tour.price) %></h2>
               <%= link_to "See details", attraction_tour_path(@attraction, tour), class: "btn btn-primary" %>
