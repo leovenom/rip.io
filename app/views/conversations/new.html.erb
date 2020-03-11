@@ -1,0 +1,12 @@
+<h1 class="mt-5">Conversation with <%= @tour.guide.first_name %></h1>
+
+<%= link_to 'Back to tour details', tour_path(@tour) %>
+
+<h3>Send new message</h3>
+<%= form_for [@tour, Conversation.new] do |f| %>
+  <div class="field">
+    <%= text_area :message, :content, placeholder: "Your message" %>
+  </div>
+
+  <%= f.submit "Send" %>
+<% end %>

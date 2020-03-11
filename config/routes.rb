@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'conversations/index'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
   resources :guides, only: [:index, :show, :update]
+
+  resources :conversations, only: [:index, :show] do
+    resources :messages, only: [:create]
+  end
 
   resources :attractions do
     resources :tours
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
   resources :tours do
     resources :reviews
     resources :bookings, only: [:create]
+    resources :conversations, only: [:new, :create]
   end
 
   resources :bookings, only: [:edit, :update, :destroy]

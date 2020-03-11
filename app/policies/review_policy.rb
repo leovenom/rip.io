@@ -5,7 +5,15 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
   def create?
+    true
+  end
+
+  def show?
     true
   end
 
@@ -17,11 +25,9 @@ class ReviewPolicy < ApplicationPolicy
     user_is_owner?
   end
 
-private
+  private
 
   def user_is_owner?
     record.user == user
   end
 end
-
-
