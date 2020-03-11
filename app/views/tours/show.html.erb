@@ -1,2 +1,25 @@
 <h1>Tour show</h1>
 
+<div class="container">
+    <div class="row min-width-card-guide">
+
+      <% @tour.reviews.each do |review| %>
+        <div class="card" style="height: 60%;">
+          <div class="card-trip-infos">
+            <h5 class="card-title pt-3">
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <h2><%= review.comment %></h2>
+            </h5>
+
+            <p><%= review.rating %></p>
+            <p class="card-text"></p>
+            </div>
+              <p class="card-text">
+
+
+              <%= link_to "See details", attraction_tour_path(@attraction, tour), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+
+</div>

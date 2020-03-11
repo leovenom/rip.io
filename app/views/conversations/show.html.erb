@@ -1,0 +1,17 @@
+<h1 class="mt-5">Conversation with <%= @conversation.recipient(current_user).first_name %></h1>
+<% @conversation.messages.each do |message| %>
+  <% if message.content %>
+    <li>
+      <h4><%= message.user.first_name %></h4>
+      <p><%= message.content %></p>
+    </li>
+  <% end %>
+<% end %>
+
+<%= form_for [@conversation, Message.new] do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Your message" %>
+  </div>
+
+  <%= f.submit "Send" %>
+<% end %>

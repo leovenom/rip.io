@@ -1,0 +1,12 @@
+<h1 class="mt-5">Inbox</h1>
+
+<ul>
+  <% @conversations.each do |conversation| %>
+    <li>
+      <%= link_to conversation.recipient(current_user).first_name, conversation_path(conversation) %>
+      <% if !conversation.unread_message_count(current_user).zero? %>
+        (<%= conversation.unread_message_count(current_user) %>)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
