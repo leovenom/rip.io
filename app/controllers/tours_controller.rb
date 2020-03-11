@@ -62,7 +62,7 @@ private
   end
 
   def tour_params
-    params.require(:tour).permit(:price, :name, :description, attraction_ids: [])
+    params.require(:tour).permit(:price, :name, :description, attraction_ids: [], photos: [])
   end
 
   def set_tour
