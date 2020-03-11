@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 2020_03_10_175153) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "date"
-    t.integer "price_cents", default: 0, null: false
     t.string "description"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_tours_on_user_id"
   end
 

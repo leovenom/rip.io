@@ -2,7 +2,7 @@
     <div class="row min-width-card-guide">
 
       <% @attraction.tours.each do |tour| %>
-        <div class="card" style="height: 60%;">
+        <div class="card mr-4" style="height: 60%; width: 200px;">
           <div class="card-trip-infos">
             <h5 class="card-title pt-3">
               <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
@@ -21,7 +21,7 @@
         </div>
       <% end %>
   </div>
-  <div class="d-flex flex-column pt-5">
+  <div class="d-flex flex-column pt-5 mb-4">
 
               <% if current_user.present? && current_user.role == 'guide' %>
             <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
