@@ -1,2 +1,35 @@
-<h1>Tours#create</h1>
-<p>Find me in app/views/tours/create.html.erb</p>
+<div class="formulario container">
+  <h1>Book Tour</h1>
+  <br>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" style="height: 580px; object-fit: cover;">
+      <% if @tour.photos.attached? %>
+      <% @tour.photos.each_with_index do |tour, indx| %>
+      <div class="carousel-item <%= indx.zero? ? "active" : "" %> ">
+
+        <%= cl_image_tag (tour.key), class:"d-block w-100"%>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" style="margin-top: -280px;">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" style="margin-top: -280px;">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  <div class="container col-md-6">
+    <h4 class="pb-4 pt-4"><%= @tour.name %></h4>
+    <p><%= @tour.description %></p>
+    <br>
+    <%= simple_form_for [@tour, @booking] do |f| %>
+    <%= f.input :book_date, required: false, input_html: {class: "datepicker"} %>
+    <%= f.button :submit,"Book", class: "btn btn-outline-secondary" %>
+    <% end %>
+    </div>
+</div>
+<div>
+
+</div>

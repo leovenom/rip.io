@@ -7,8 +7,7 @@
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
           <h4 class='card-overflow'><%= tour.name %></h4>
         </h5>
-          <p><%= tour.description %></p>
-          <p class="card-text-tour"></p>
+          <p class="card-text-tour card-overflow"> <%= tour.description %></p>
             <div >
               <h2 class="card-trip-pricing">€<%= tour.price %></h2>
               <%= link_to "See details", attraction_tour_path(@attraction, tour), class: "btn btn-primary" %>
