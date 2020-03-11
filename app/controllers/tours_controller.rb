@@ -10,6 +10,7 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @booking = Booking.new
+    @conversation_with_guide = Conversation.between(@tour.user_id, current_user.id)
     authorize @tour
   end
 

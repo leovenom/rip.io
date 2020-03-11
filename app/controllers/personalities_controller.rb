@@ -50,7 +50,7 @@ before_action :set_personality, only: [ :edit, :update, :destroy]
     end
   end
 
-    def edit
+  def edit
     authorize @personality
   end
 
