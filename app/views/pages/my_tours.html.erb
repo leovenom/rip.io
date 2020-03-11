@@ -1,1 +1,33 @@
-my_tours.html.erb
+<div class="formulario container col-md-8">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Guide</th>
+        <th scope="col">Tour</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Cancel</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% count = 1 %>
+      <% @tours.each do |tour| %>
+      <tr>
+        <th scope="row"><%= count %></th>
+        <td> <%= tour.date %> </td>
+        <td> <%= tour.user_id %> </td>
+        <td> <%= tour.name %> </td>
+        <td> <%= tour.description %> </td>
+        <td> <%= humanized_money_with_symbol(tour.price) %> </td>
+        <td> <%= link_to "Edit", edit_tour_path(tour), class: "btn btn-outline-secondary" %></td>
+        <td> <%= link_to "Delete", tour_path(tour), method: :delete, class: "btn btn-outline-danger" %></td>
+      </tr>
+      <% count += 1 %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

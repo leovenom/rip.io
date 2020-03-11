@@ -1,7 +1,7 @@
 class TourPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(guide: user)
     end
   end
 
@@ -32,6 +32,6 @@ class TourPolicy < ApplicationPolicy
 private
 
   def user_is_owner?
-    record.user == user
+    record.guide == user
   end
 end
