@@ -1,4 +1,8 @@
-<div class="container justify-content-center pt-5">
+<div class="formulario container col-md-3">
+<h1>Book Tour</h1>
+<h4><%= @tour.name %></h4>
+<p><%= @tour.description %></p>
+<br>
   <%= simple_form_for [@tour, @booking] do |f| %>
       <%= f.input :book_date, required: false, input_html: {class: "datepicker"} %>
       <%= f.button :submit,"Book", class: "btn btn-outline-secondary" %>
