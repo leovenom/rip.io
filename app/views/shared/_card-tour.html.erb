@@ -13,7 +13,7 @@
         </h5>
           <p class="card-text-tour card-overflow"> <%= tour.description %></p>
             <div >
-              <h2 class="card-trip-pricing">€<%= tour.price %></h2>
+              <h2 class="card-trip-pricing"><%= humanized_money_with_symbol(tour.price) %></h2>
               <%= link_to "See details", attraction_tour_path(@attraction, tour), class: "btn btn-primary" %>
             </div>
       </div>

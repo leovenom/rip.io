@@ -9,7 +9,6 @@ class PagesController < ApplicationController
 
   def my_bookings
     @bookings = current_user.bookings #policy_scope(Booking)
-
     authorize @bookings
   end
 
