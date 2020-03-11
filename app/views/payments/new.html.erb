@@ -1,0 +1,17 @@
+<div class="formulario container col-md-4">
+  <div class="card">
+    <h1>Checkout summary</h1>
+    <h5>Purchase of <strong><%= @order.tour.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></h5>
+    <button id="pay" class="btn btn-primary">Pay</button>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const paymentButton = document.getElementById('pay');
+      paymentButton.addEventListener('click', () => {
+        const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+        stripe.redirectToCheckout({
+          sessionId: '<%= @order.checkout_session_id %>'
+        });
+      });
+    </script>
+  </div>
+</div>

@@ -22,6 +22,10 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:edit, :update, :destroy]
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
   get '/my_attractions', to: 'pages#my_attractions'
   get '/my_bookings', to: 'pages#my_bookings'
   get '/my_tours', to: 'pages#my_tours'
@@ -32,5 +36,6 @@ Rails.application.routes.draw do
 
 
   get '/my_personalities', to: 'pages#my_personalities'
+
 end
 
