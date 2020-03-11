@@ -23,6 +23,21 @@
 }
 
 
+
+.card-text-tour {
+  min-height: 25%;
+}
+
+.card-overflow{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover{
+    overflow:inherit;
+    white-space: inherit;
+    text-overflow: inherit;
+  }
+}
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;

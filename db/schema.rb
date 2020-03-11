@@ -64,8 +64,7 @@ ActiveRecord::Schema.define(version: 2020_03_11_154910) do
     t.bigint "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "start_date"
-    t.date "end_date"
+    t.string "book_date"
     t.index ["tour_id"], name: "index_bookings_on_tour_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -86,6 +85,19 @@ ActiveRecord::Schema.define(version: 2020_03_11_154910) do
     t.boolean "read", default: false
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "tour_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id"
+    t.bigint "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_orders_on_tour_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "personalities", force: :cascade do |t|
@@ -116,12 +128,13 @@ ActiveRecord::Schema.define(version: 2020_03_11_154910) do
 
   create_table "tours", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "date"
     t.string "description"
+    t.integer "price_cents", default: 0, null: false
+    t.string "sku"
     t.index ["user_id"], name: "index_tours_on_user_id"
   end
 
@@ -162,6 +175,8 @@ ActiveRecord::Schema.define(version: 2020_03_11_154910) do
   add_foreign_key "bookings", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "orders", "tours"
+  add_foreign_key "orders", "users"
   add_foreign_key "personalities", "attractions"
   add_foreign_key "personalities", "users"
   add_foreign_key "tours", "users"

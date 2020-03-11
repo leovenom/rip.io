@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :attractions
   has_many :personalities
   has_many :reviews
+  has_many :orders
 
   has_one_attached :profile_picture
 
@@ -15,6 +16,10 @@ class User < ApplicationRecord
   if self.new_record?
     self.role ||= :user
     end
+  end
+
+  def full_name
+    [first_name, last_name].compact.join(" ")
   end
 
   # Include default devise modules. Others available are:

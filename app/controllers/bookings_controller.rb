@@ -26,14 +26,15 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
-    @tour = Tour.find(params[:tour_id])
     authorize @booking
   end
 
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
+
     authorize @booking
+
     redirect_to my_bookings_path
   end
 
@@ -47,6 +48,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:tour_id, :start_date, :end_date)
+    params.require(:booking).permit(:tour_id, :book_date)
   end
 end

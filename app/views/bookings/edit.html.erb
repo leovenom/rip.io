@@ -1,2 +1,7 @@
-<h1>Bookings#edit</h1>
-<p>Find me in app/views/bookings/edit.html.erb</p>
+<div class="formulario container col-md-3">
+  <h1>Edit Tour</h1>
+  <%= simple_form_for [@tour, @booking] do |f| %>
+      <%= f.input :book_date, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit,"Book", class: "btn btn-outline-secondary" %>
+  <% end %>
+</div>

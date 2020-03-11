@@ -8,25 +8,28 @@ Rails.application.routes.draw do
 
   resources :guides, only: [:index, :show, :update]
 
-  resources :conversations, only: [:index, :create, :show] do
+  resources :conversations, only: [:index, :show] do
     resources :messages, only: [:create]
   end
 
   resources :attractions do
-      resources :tours do
-      resources :bookings
-    end
+    resources :tours
   end
 
-    resources :personalities do
-      resources :tours do
-        resources :bookings
-      end
-    end
-
+  resources :personalities do
+    resources :tours
+  end
 
   resources :tours do
     resources :reviews
+    resources :bookings, only: [:create]
+    resources :conversations, only: [:new, :create]
+  end
+
+  resources :bookings, only: [:edit, :update, :destroy]
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
   end
 
   get '/my_attractions', to: 'pages#my_attractions'
@@ -39,5 +42,6 @@ Rails.application.routes.draw do
 
 
   get '/my_personalities', to: 'pages#my_personalities'
+
 end
 

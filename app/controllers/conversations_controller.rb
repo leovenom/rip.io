@@ -1,9 +1,15 @@
 class ConversationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :fetch_tour, only: [:create, :new]
 
   def index
     @conversations = policy_scope(Conversation).where("guide_id = ? OR user_id = ?", current_user.id, current_user.id)
     @users = policy_scope(User).where.not(id: current_user.id)
+  end
+
+  def new
+    @conversation = Conversation.new
+    authorize @conversation
   end
 
   def show
@@ -14,19 +20,17 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    if Conversation.between(params[:guide_id], params[:user_id]).present?
-      @conversation = Conversation.between(params[:guide_id], params[:user_id]).first
-      authorize @conversation
-    else
-      @conversation = Conversation.create!(conversation_params)
-      authorize @conversation
-    end
+    @conversation = Conversation.create(guide: @tour.guide, user: current_user)
+    authorize @conversation
 
-    redirect_to conversation_messages_path(@conversation)
+    @conversation.messages.create(user: current_user, content: params[:message][:content])
+
+    redirect_to conversation_path(@conversation)
   end
 
   private
-    def conversation_params
-      params.permit(:guide_id, :user_id)
-    end
+
+  def fetch_tour
+    @tour = Tour.find(params[:tour_id])
+  end
 end

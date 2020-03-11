@@ -1,4 +1,7 @@
 <h1 class="mt-5">Conversation with <%= @conversation.recipient(current_user).first_name %></h1>
+
+<%= link_to 'All conversations', conversations_path %>
+
 <% @conversation.messages.each do |message| %>
   <% if message.content %>
     <li>
@@ -8,6 +11,7 @@
   <% end %>
 <% end %>
 
+<h3>Send new message</h3>
 <%= form_for [@conversation, Message.new] do |f| %>
   <div class="field">
     <%= f.text_area :content, placeholder: "Your message" %>

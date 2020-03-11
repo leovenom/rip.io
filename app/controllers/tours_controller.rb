@@ -8,6 +8,9 @@ class ToursController < ApplicationController
   end
 
   def show
+    @tour = Tour.find(params[:id])
+    @booking = Booking.new
+    @conversation_with_guide = Conversation.between(@tour.user_id, current_user.id)
     authorize @tour
   end
 
@@ -24,11 +27,9 @@ class ToursController < ApplicationController
     @tour.guide = current_user
 
     authorize @tour
-byebug
     if @tour.save
       redirect_to root_path, notice: 'Tour was successfully created.'
     else
-      puts @tour.errors.messages
       render :new
     end
   end
@@ -39,20 +40,20 @@ byebug
 
   def update
     authorize @tour
-      if @tour.update(tour_params)
-        @tour.save
-        redirect_to tour_path
-      else
-        puts @tour.errors.messages
-        render :edit
-      end
+
+    if @tour.update(tour_params)
+      @tour.save
+      redirect_to my_tours_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @tour = Tour.where(user_id: current_user.id).first
+    @tour = Tour.find(params[:id])
     authorize @tour
     @tour.destroy
-    redirect_to root_path
+    redirect_to my_tours_path
   end
 
 private
@@ -62,7 +63,7 @@ private
   end
 
   def tour_params
-    params.require(:tour).permit(:price, :name, :description, attraction_ids: [])
+    params.require(:tour).permit(:price, :name, :description, attraction_ids: [], photos: [])
   end
 
   def set_tour

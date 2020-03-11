@@ -8,6 +8,7 @@
         <th scope="col">Price</th>
         <th scope="col">Edit</th>
         <th scope="col">Cancel</th>
+        <th scope="col">Payment</th>
       </tr>
     </thead>
 
@@ -16,14 +17,20 @@
       <% @bookings.each do |booking| %>
       <tr>
         <th scope="row"><%= count %></th>
-        <td> <%= booking.start_date %> </td>
-        <td> <%= tours.user_id %> </td>
-        <td> <%= tours.price %> </td>
-        <td> <%= link_to "Edit", edit_attraction_booking_path(booking.attraction_id, booking.id), class: "btn btn-outline-secondary" %></td>
-        <td> <%= link_to "Delete", bookings_path, method: :delete, class: "btn btn-outline-danger" %></td>
+        <td> <%= booking.book_date %> </td>
+        <td> <%= booking.tour.user_id %> </td>
+        <td> <%= booking.tour.price %> </td>
+        <td> <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-outline-secondary" %></td>
+        <td> <%= link_to "Delete", booking_path(booking), method: :delete, class: "btn btn-outline-danger" %></td>
+        <td> <%= form_tag orders_path do %>
+              <%= hidden_field_tag 'tour_id', booking.tour.id %>
+              <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+            <% end %>
+        </td>
       </tr>
       <% count += 1 %>
       <% end %>
+
     </tbody>
   </table>
 </div>

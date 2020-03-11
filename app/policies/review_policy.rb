@@ -25,7 +25,7 @@ class ReviewPolicy < ApplicationPolicy
     user_is_owner?
   end
 
-private
+  private
 
   def user_is_owner?
     record.user == user

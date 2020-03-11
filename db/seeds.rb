@@ -58,8 +58,8 @@ file = URI.open('https://placeimg.com/640/480/any')
 attraction = Attraction.new(name: nomes.sample,
   address: address.sample,
   description: bacon.first.partition(" ").first,
-  text: bacon.first
-  user: user
+  text: bacon.first,
+  user: user)
 attraction.photos.attach(io: file, filename: 'picsum.jpg', content_type: 'image/jpg')
 
 
