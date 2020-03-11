@@ -6,6 +6,7 @@ class Tour < ApplicationRecord
   has_many :attractions, through: :attractions_tours
   has_many :reviews
   has_many_attached :photos
+  has_many :orders, dependent: :destroy
 
   monetize :price_cents
 
