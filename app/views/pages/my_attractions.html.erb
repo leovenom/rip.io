@@ -20,8 +20,8 @@
         <td><%= attraction.description %></td>
         <td><%= attraction.address %></td>
         <td><%= attraction.text %></td>
-        <td><%= link_to "Edit", edit_attraction_path(attraction), class: "btn btn-outline-secondary" %></td>
-        <td><%= link_to "Delete", attraction_path(attraction), method: :delete, class: "btn btn-outline-danger" %></td>
+        <td><%= link_to "Edit", edit_attraction_path(attraction), class: "btn btn-secondary" %></td>
+        <td><%= link_to "Delete", attraction_path(attraction), method: :delete, class: "btn btn-danger" %></td>
       </tr>
       <% count += 1 %>
       <% end %>

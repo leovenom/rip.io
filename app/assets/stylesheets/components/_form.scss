@@ -2,3 +2,7 @@
   padding-top: 100px;
   padding-bottom: 115px;
 }
+
+.form-group + .form-check {
+  margin-top: -1rem;
+}

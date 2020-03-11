@@ -23,8 +23,8 @@
         <td> <%= tour.name %> </td>
         <td> <%= tour.description %> </td>
         <td> <%= humanized_money_with_symbol(tour.price) %> </td>
-        <td> <%= link_to "Edit", edit_tour_path(tour), class: "btn btn-outline-secondary" %></td>
-        <td> <%= link_to "Delete", tour_path(tour), method: :delete, class: "btn btn-outline-danger" %></td>
+        <td> <%= link_to "Edit", edit_tour_path(tour), class: "btn btn-secondary" %></td>
+        <td> <%= link_to "Delete", tour_path(tour), method: :delete, class: "btn btn-danger" %></td>
       </tr>
       <% count += 1 %>
       <% end %>
