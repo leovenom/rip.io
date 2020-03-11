@@ -1,31 +1,29 @@
 <div class="container">
-    <div class="row min-width-card-guide">
-
-      <% @attraction.tours.each do |tour| %>
-        <div class="card mr-4" style="height: 60%; width: 200px;">
-          <div class="card-trip-infos">
-            <h5 class="card-title pt-3">
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              <h2><%= tour.name %></h2>
-            </h5>
-
-            <p><%= tour.description %></p>
-            <p class="card-text"></p>
-            </div>
-              <p class="card-text">
-
+  <div class="row min-width-card-guide">
+    <% @attraction.tours.each do |tour| %>
+    <div class="card mr-4" style="width: 25%;">
+      <div class="card-trip-infos">
+        <h5 class="card-title pt-3">
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <h4 class='card-overflow'><%= tour.name %></h4>
+        </h5>
+          <p><%= tour.description %></p>
+          <p class="card-text-tour"></p>
+            <div >
               <h2 class="card-trip-pricing">€<%= tour.price %></h2>
-
-
               <%= link_to "See details", attraction_tour_path(@attraction, tour), class: "btn btn-primary" %>
-        </div>
-      <% end %>
-  </div>
-  <div class="d-flex flex-column pt-5 mb-4">
-
-              <% if current_user.present? && current_user.role == 'guide' %>
-            <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
-            <% end %>
+            </div>
+      </div>
     </div>
+      <% end %>
+
   </div>
+
+      <div class="d-flex flex-column pt-5 mb-4">
+        <% if current_user.present? && current_user.role == 'guide' %>
+        <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
+        <% end %>
+      </div>
+
+
 </div>
