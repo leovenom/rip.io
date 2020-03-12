@@ -6,8 +6,8 @@ class Conversation < ApplicationRecord
   # If Sarah starts a conversation with Bradley, Sarah is the sender and Bradley the receiver. If Bradley wants to send Sarah a message, he should use the same conversation that has already been set up between those two users, even though he is now the sender
   validates_uniqueness_of :guide_id, scope: :user_id
 
-  scope :between, -> (guide_id, user_id) do
-    find_by("(conversations.guide_id = ? AND conversations.user_id = ?) OR (conversations.user_id = ? AND conversations.guide_id = ?)", guide_id, user_id, guide_id, user_id)
+  def self.between(usera, userb)
+    where(guide: usera, user: userb).or(where(guide: userb, user: usera)).first
   end
 
   def recipient(current_user)

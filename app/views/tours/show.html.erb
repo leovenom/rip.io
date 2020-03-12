@@ -62,7 +62,7 @@
 
     <% if user_signed_in? && @tour.guide != current_user %>
       <% if @conversation_with_guide.present? %>
-        <%= link_to 'Send message', conversation_path(@conversation_with_guide), class: 'btn btn-primary' %>
+        <%= link_to 'Send message', conversation_path(@conversation_with_guide.id), class: 'btn btn-primary' %>
       <% else %>
         <%= link_to 'Send message', new_tour_conversation_path(@tour), class: 'btn btn-primary' %>
       <% end %>
