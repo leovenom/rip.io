@@ -4,7 +4,7 @@
       <%= f.input :name %>
       <%= f.input :address, placeholder: "Street/Country" %>
       <%= f.input :description %>
-      <%= f.association :tours, as: :check_boxes %>
+      <%#= f.association :tours, as: :check_boxes %>
       <%= f.input :text, as: :text %>
       <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit,"Add attraction", class: "btn btn-secondary" %>

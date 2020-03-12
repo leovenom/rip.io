@@ -3,8 +3,6 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Date</th>
-        <th scope="col">Guide</th>
         <th scope="col">Tour</th>
         <th scope="col">Description</th>
         <th scope="col">Price</th>
@@ -18,8 +16,6 @@
       <% @tours.each do |tour| %>
       <tr>
         <th scope="row"><%= count %></th>
-        <td> <%= tour.date %> </td>
-        <td> <%= tour.user_id %> </td>
         <td> <%= tour.name %> </td>
         <td> <%= tour.description %> </td>
         <td> <%= humanized_money_with_symbol(tour.price) %> </td>
