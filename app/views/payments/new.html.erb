@@ -1,8 +1,12 @@
 <div class="formulario container col-md-4">
-  <div class="card">
+  <div class="payment-card">
     <h1>Checkout summary</h1>
+  </div>
+<div class="formulario container col-md-8">
     <h5>Purchase of <strong><%= @order.tour.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></h5>
-    <button id="pay" class="btn btn-secondary">Pay</button>
+  <div class="container col-md-4">
+    <button id="pay" class="btn btn-primary d-flex justify-content-center">Pay</button>
+  </div>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
       const paymentButton = document.getElementById('pay');
