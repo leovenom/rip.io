@@ -31,7 +31,7 @@
           <%= link_to attraction_path(attract), class:"d-flex justify-content-center" do %>
             <div class="card-product" style="justify-content: space-between;">
               <% if attract.photos.attached? %>
-                <%= cl_image_tag (attract.photos.first.key), class:"" %>
+                <%= cl_image_tag (attract.photos.first.key)%>
               <% end %>
               <div class="card-product-infos">
                 <h5 id="index-title" class="card-title"><%= attract.name %></h5>
@@ -51,9 +51,9 @@
       <div class="cards">
         <% @personalities.each do |personality| %>
           <%= link_to personality_path(personality), class:"d-flex justify-content-center" do %>
-            <div class="card-product">
+            <div class="card-product"  style="justify-content: space-between;">
               <% if personality.photos.attached? %>
-                <%= cl_image_tag (personality.photos.first.key), class:"card-img-top"%>
+                <%= cl_image_tag (personality.photos.first.key)%>
               <% end %>
               <div class="card-product-infos">
                 <h5 id="index-title" class="card-title"><%= personality.name %></h5>
