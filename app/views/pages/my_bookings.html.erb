@@ -24,7 +24,7 @@
         <td> <%= link_to "Delete", booking_path(booking), method: :delete, class: "btn btn-danger" %></td>
         <td> <%= form_tag orders_path do %>
               <%= hidden_field_tag 'tour_id', booking.tour.id %>
-              <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+              <%= submit_tag 'Purchase', class: 'btn btn-success' %>
             <% end %>
         </td>
       </tr>
