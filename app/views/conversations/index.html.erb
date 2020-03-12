@@ -1,21 +1,29 @@
-<div class="mt-5">
-  <li class="nav-item dropdown">
-    <% if current_user.profile_picture.attached? %>
-      <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-    <% else %>
-      <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
-    <% end %>
-</div>
+<div class="side-bar">
+  <div class="chat">
+    <div class="mt-5 d-flex align-items-center" >
 
-        <h1 class="mt-5">Inbox</h1>
 
-<ul>
-  <% @conversations.each do |conversation| %>
-    <li>
-      <%= link_to conversation.recipient(current_user).first_name, conversation_path(conversation) %>
-      <% if !conversation.unread_message_count(current_user).zero? %>
-        (<%= conversation.unread_message_count(current_user) %>)
+
+        <% if current_user.profile_picture.attached? %>
+          <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
+        <% end %>
+
+
+       <h1 class="chat-header">Inbox</h1>
+    </div>
+  <div class="conversations">
+
+    <ul>
+      <% @conversations.each do |conversation| %>
+        <li>
+          <%= link_to conversation.recipient(current_user).first_name, conversation_path(conversation) %>
+          <% if !conversation.unread_message_count(current_user).zero? %>
+            (<%= conversation.unread_message_count(current_user) %>)
+          <% end %>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
+    </ul>
+  </div>
+</div>
