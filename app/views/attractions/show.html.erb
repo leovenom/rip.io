@@ -3,15 +3,13 @@
 
   <div class="banner mr-5" style="width: 100%;">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner" style="height: 580px; object-fit: cover;">
+  <div class="carousel-inner" style="height: 580px">
     <% if @attraction.photos.attached? %>
-    <% @attraction.photos.each_with_index do |attract, indx| %>
-    <div class="carousel-item <%= indx.zero? ? "active" : "" %> ">
-
-
-      <%= cl_image_tag (attract.key), class:"d-block w-100"%>
-    </div>
-    <% end %>
+      <% @attraction.photos.each_with_index do |attract, indx| %>
+        <div class="carousel-item <%= indx.zero? ? "active" : "" %> ">
+          <div class="d-block slide-image" style="height: 580px;background-image: url(<%= cl_image_path attract.key %>)"></div>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

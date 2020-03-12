@@ -10,7 +10,7 @@
             <div class="<%= card_classes(idx) %>">
               <%= link_to attraction_path(attract) do %>
                 <% if attract.photos.attached? %>
-                  <%= cl_image_tag (attract.photos.first.key), class:"card-img-top"%>
+                  <%= cl_image_tag (attract.photos.first.key), class: "card-img-top"%>
                 <% end %>
                 <div class="card-body">
                   <h5 class="card-title"><%= attract.name %></h5>
