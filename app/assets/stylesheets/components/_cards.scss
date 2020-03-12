@@ -18,10 +18,12 @@ line-height: 25px;
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
+height: 40vh;
+width: 100%;
   &:hover{
     white-space: inherit;
     text-overflow: inherit;
-    height: 45vh;
+    height: 44vh;
     width: 100%;
   }
 }
