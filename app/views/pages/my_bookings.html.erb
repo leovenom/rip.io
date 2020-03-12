@@ -18,7 +18,7 @@
       <tr>
         <th scope="row"><%= count %></th>
         <td> <%= booking.book_date %> </td>
-        <td> <%= booking.tour.user_id %> </td>
+        <td> <%= booking.tour.guide.first_name %> </td>
         <td> <%= booking.tour.price %> </td>
         <td> <%= link_to "Edit", edit_booking_path(booking), class: "btn btn-secondary" %></td>
         <td> <%= link_to "Delete", booking_path(booking), method: :delete, class: "btn btn-danger" %></td>

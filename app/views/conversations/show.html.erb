@@ -1,21 +1,29 @@
-<h1 class="mt-5">Conversation with <%= @conversation.recipient(current_user).first_name %></h1>
-
-<%= link_to 'All conversations', conversations_path %>
-
-<% @conversation.messages.each do |message| %>
-  <% if message.content %>
-    <li>
-      <h4><%= message.user.first_name %></h4>
-      <p><%= message.content %></p>
-    </li>
-  <% end %>
-<% end %>
-
-<h3>Send new message</h3>
-<%= form_for [@conversation, Message.new] do |f| %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Your message" %>
+<div class="container-chatbox">
+  <div class="conversation-username">
+    <h1 class="mt-5"><%= @conversation.recipient(current_user).first_name %> <%= @conversation.recipient(current_user).last_name%></h1>
   </div>
 
-  <%= f.submit "Send" %>
-<% end %>
+  <div class="text-right">
+    <%= link_to '← back', conversations_path %>
+  </div>
+
+  <% @conversation.messages.each do |message| %>
+    <% if message.content %>
+      <li>
+        <h4><%= message.user.first_name %></h4>
+        <p><%= message.content %></p>
+      </li>
+    <% end %>
+  <% end %>
+
+  <h3>Send new message</h3>
+
+  <%= simple_form_for [@conversation, Message.new] do |f| %>
+    <div class="field">
+      <%= f.input :content, as: :text, label: false, placeholder: "Your message", style: 'float: left; width: 100%; display: block' %>
+    </div>
+
+    <%= f.submit "Send", class: "btn btn-primary" %>
+
+  <% end %>
+</div>
