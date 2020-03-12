@@ -29,7 +29,7 @@
       <div class="cards">
         <% @attractions.each do |attract| %>
           <%= link_to attraction_path(attract), class:"d-flex justify-content-center" do %>
-            <div class="card-product d-flex" style="justify-content: space-between;">
+            <div class="card-product" style="justify-content: space-between;">
               <% if attract.photos.attached? %>
                 <%= cl_image_tag (attract.photos.first.key), class:"" %>
               <% end %>

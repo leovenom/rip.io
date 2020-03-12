@@ -23,7 +23,7 @@
 }
 .card-product {
   overflow: hidden;
-  height: 120px;
+  height: 140px;
   background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
@@ -32,6 +32,8 @@
   margin-bottom: 15px;
   color: #fff;
   transition: background 0.3s ease;
+  justify-content: space-between;
+  padding-top: 10x;
   &:hover {
     background: #64627b;
     color: white;
@@ -60,7 +62,7 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding-left: 10px;
 }
 
 a:link {
@@ -69,4 +71,8 @@ a:link {
 
 #index-title {
     color: #fff;
+}
+
+.img-box {
+justify-content: end;
 }
