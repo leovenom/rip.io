@@ -23,7 +23,7 @@
 }
 .card-product {
   overflow: hidden;
-  // height: 120px;
+  height: 140px;
   background: rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   display: flex;
@@ -62,8 +62,6 @@
 }
 
 .card-product .card-product-infos {
-  flex-direction: column;
-  justify-content: space-around;
   padding-left: 10px;
 }
 
