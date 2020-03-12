@@ -1,8 +1,8 @@
 <div class="formulario container">
-  <h1>Book Tour</h1>
+  <h1 class="container">Book Tour</h1>
   <br>
 
-  <div>
+  <div class="container" style="padding-bottom: 30px;">
     <h3>Tour guide</h3>
     <% if @tour.guide.profile_picture.attached? %>
       <%= cl_image_tag @tour.guide.profile_picture.key, class:"card-trip-user avatar-bordered" %>
@@ -59,8 +59,7 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-  <div class="container col-md-6">
+        <div class="container pt-4 pb-4 col-md-6" style="margin-left: 0;">
     <h4 class="pb-4 pt-4"><%= @tour.name %></h4>
     <p><%= @tour.description %></p>
     <br>
@@ -69,4 +68,5 @@
     <%= f.button :submit,"Book", class: "btn btn-secondary" %>
     <% end %>
   </div>
+
 </div>
