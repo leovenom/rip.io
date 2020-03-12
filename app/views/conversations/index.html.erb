@@ -1,21 +1,23 @@
-<div class="side-bar">
-  <div class="chat">
-    <div class="mt-5 d-flex align-items-center" >
-
-
+<div class="col-xs-4" align="center">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+      <div class="col-md-3">
 
         <% if current_user.profile_picture.attached? %>
           <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% else %>
-          <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
+          <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', style: 'margin: 0px', data: { toggle: "dropdown" } %>
         <% end %>
 
 
        <h1 class="chat-header">Inbox</h1>
     </div>
-  <div class="conversations">
-
-    <ul>
+  <div class="conversations col-md-2 personal-info profile-card">
+    <% if @conversations.present? %>
+    <ul style="padding: 0px">
       <% @conversations.each do |conversation| %>
         <li>
           <%= link_to conversation.recipient(current_user).first_name, conversation_path(conversation) %>
@@ -25,5 +27,8 @@
         </li>
       <% end %>
     </ul>
+    <% else %>
+    <%= "You have no conversations" %>
+    <% end %>
   </div>
 </div>
