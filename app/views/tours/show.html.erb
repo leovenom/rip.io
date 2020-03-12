@@ -52,21 +52,22 @@
   </div>
 
     <div class="pt-4 pb-4 col-lg-6" style="padding-left: 18%;">
-    <h3>Tour guide</h3>
-    <% if @tour.guide.profile_picture.attached? %>
-      <%= cl_image_tag @tour.guide.profile_picture.key, class:"card-trip-user avatar-bordered" %>
-    <% else %>
-      <%= image_tag 'favicon.png', class:"card-trip-user avatar-bordered" %>
-    <% end %>
-    <%= @tour.guide.full_name %>
-
-    <% if user_signed_in? && @tour.guide != current_user %>
-      <% if @conversation_with_guide.present? %>
-        <%= link_to 'Send message', conversation_path(@conversation_with_guide.id), class: 'btn btn-primary' %>
+      <h3>Tour guide</h3>
+      <% if @tour.guide.profile_picture.attached? %>
+        <%= cl_image_tag @tour.guide.profile_picture.key, class:"card-trip-user avatar-bordered" %>
       <% else %>
-        <%= link_to 'Send message', new_tour_conversation_path(@tour), class: 'btn btn-primary' %>
+        <%= image_tag 'favicon.png', class:"card-trip-user avatar-bordered" %>
       <% end %>
-    <% end %>
-  </div>
+      <%= @tour.guide.full_name %>
+      <div class="mt-3">
+        <% if user_signed_in? && @tour.guide != current_user %>
+          <% if @conversation_with_guide.present? %>
+            <%= link_to 'Send message', conversation_path(@conversation_with_guide.id), class: 'btn btn-primary' %>
+          <% else %>
+            <%= link_to 'Send message', new_tour_conversation_path(@tour), class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
  </div>
 </div>
