@@ -1,5 +1,16 @@
 .payment-card {
-border-bottom: 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.card-pay {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 20px 20px;
+  padding: 50px 15px;
+  margin-top: 70px;
+}
+
+.text-pay {
+  padding: 50px 0px;
 }
 
 .payment-card h1 {

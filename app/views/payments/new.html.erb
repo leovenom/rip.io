@@ -1,12 +1,12 @@
-<div class="formulario container col-md-4">
+<div class="formulario container col-md-4 card-pay">
   <div class="payment-card">
     <h1>Checkout summary</h1>
   </div>
-<div class="formulario container col-md-8">
-    <h5>Purchase of <strong><%= @order.tour.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></h5>
-  <div class="container col-md-4">
-    <button id="pay" class="btn btn-primary d-flex justify-content-center">Pay</button>
+  <div class="formulario container col-md-8 text-pay">
+    <h3>Purchase of: <strong><%= @order.tour.name %></strong></h3>
+    <h3>For: <strong><%= humanized_money_with_symbol @order.amount %></strong></h3>
   </div>
+    <button id="pay" class="btn btn-success btn-block">Pay</button>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
       const paymentButton = document.getElementById('pay');
@@ -17,5 +17,5 @@
         });
       });
     </script>
-  </div>
+
 </div>
