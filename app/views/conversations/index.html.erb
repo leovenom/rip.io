@@ -1,4 +1,13 @@
-<h1 class="mt-5">Inbox</h1>
+<div class="mt-5">
+  <li class="nav-item dropdown">
+    <% if current_user.profile_picture.attached? %>
+      <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% else %>
+      <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
+    <% end %>
+</div>
+
+        <h1 class="mt-5">Inbox</h1>
 
 <ul>
   <% @conversations.each do |conversation| %>
