@@ -8,7 +8,11 @@
       <%= personality.input :text, as: :text %>
       <%= personality.input :photos, as: :file, input_html: { multiple: true } %>
       <%= personality.association :attraction, as: :radio_buttons %>
-      <div class="form-check"><input class="form-check-input radio_buttons optional" type="radio" value="false" name="nil" id="nil"><label class="form-check-label collection_radio_buttons" for="nil">None</label></div>
-      <%= personality.button :submit,"Add Personality", class: "btn btn-outline-secondary" %>
+      <div class="form-check">
+        <input class="form-check-input radio_buttons optional" type="radio" value="false" name="nil" id="nil">
+        <label class="form-check-label collection_radio_buttons" for="nil">None</label>
+      </div>
+      <br>
+      <%= personality.button :submit,"Add Personality", class: "btn btn-secondary" %>
   <% end %>
 </div>

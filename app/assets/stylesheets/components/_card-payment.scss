@@ -1,0 +1,35 @@
+.payment-card {
+  border-bottom: 1px solid white;
+}
+
+.card-pay {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px 20px 20px 20px;
+  padding: 50px 15px;
+  margin-top: 70px;
+}
+
+.text-pay {
+  padding: 30px 0px 50px 0px;
+  margin-left: 0px
+}
+
+.payment-card h1 {
+  margin-left: 18px;
+}
+
+.pay-card {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px 20px 20px 20px;
+  border: 10px solid rgba(0, 0, 0, 0.0);
+  display: flex;
+  //width: 288px;
+  margin-top: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+  height: 120px;
+}
+
+#pay {
+  height: 30px;
+}

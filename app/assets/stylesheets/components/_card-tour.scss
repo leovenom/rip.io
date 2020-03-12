@@ -17,7 +17,7 @@
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
   margin: 0;
 }
@@ -40,7 +40,7 @@
 }
 .card-trip .card-trip-infos {
   padding: 16px;
-  display: flex;
+  // display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
@@ -51,13 +51,19 @@
   right: -15px;
   top: -15px;
   width: 40px;
+  height: 40px;
 }
 
 .btn {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .min-width-card{
   min-width: 85%;
   margin-right: 0;
+}
+
+#tour-btn {
+  font-size: 20px;
+  font-style: bold;
 }

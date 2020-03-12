@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row min-width-card-guide">
+  <div class="row min-width-card-guide justify-content-around">
     <% @attraction.tours.each do |tour| %>
     <div class="card mr-4 card-limits">
       <div class="card-trip-infos">
         <h5 class="card-title pt-3">
-           <% if current_user.profile_picture.attached? %>
-          <%= cl_image_tag current_user.profile_picture.key, class:"card-trip-user avatar-bordered" %>
+           <% if tour.guide.profile_picture.attached? %>
+          <%= cl_image_tag tour.guide.profile_picture.key, class:"card-trip-user avatar-bordered" %>
            <% else %>
           <%= image_tag 'favicon.png', class:"card-trip-user avatar-bordered" %>
         <% end %>
@@ -21,12 +21,5 @@
       <% end %>
 
   </div>
-
-      <div class="d-flex flex-column pt-5 mb-4">
-        <% if current_user.present? && current_user.role == 'guide' %>
-        <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-outline-secondary btn-lg" %></td>
-        <% end %>
-      </div>
-
 
 </div>

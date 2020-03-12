@@ -1,55 +1,54 @@
 <div class="col-xs-1" align="center">
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-    <div class="col-md-3">
-      <div class="profile_picture">
-          <% if current_user.profile_picture.attached? %>
-          <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% else %>
-          <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
-        <% end %>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+      <div class="col-md-3">
+        <div class="profile_picture">
+            <% if current_user.profile_picture.attached? %>
+            <%= cl_image_tag current_user.profile_picture.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag 'favicon.png', id: "navbarDropdown", class: 'avatar dropdown-toggle', data: { toggle: "dropdown" } %>
+          <% end %>
+        </div>
       </div>
-    </div>
 
-    <div class="col-md-2 personal-info">
-      <br />
-      <h5><b>Your Details</b></h5>
-      <br />
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
-          <p><u>First Name</u></p>
-          <%= current_user.first_name %>
-        </div>
-        <hr>
-
-        <div class="form-group">
-          <p><u>Last Name</u></p>
-          <%= current_user.last_name %>
-        </div>
-        <hr>
-
-        <div class="form-group">
-          <p><u>Email</u></p>
-          <%= current_user.email %>
-        </div>
+      <div class="col-md-2 personal-info profile-card">
         <br />
-
-        <div class="form-group">
-          <p><u>Role</u></p>
-          <%= current_user.role %>
-        </div>
+        <h5><b>Your Details</b></h5>
         <br />
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <p><u>First Name</u></p>
+            <%= current_user.first_name %>
+          </div>
+          <hr>
 
-        <div class="form-group">
-            <a href="users/edit" class="btn btn-outline-secondary" role="button"><strong>Edit Details</strong></a>
-        </div>
-      </form>
-      <br />
-    </div>
+          <div class="form-group">
+            <p><u>Last Name</u></p>
+            <%= current_user.last_name %>
+          </div>
+          <hr>
+
+          <div class="form-group">
+            <p><u>Email</u></p>
+            <%= current_user.email %>
+          </div>
+          <br />
+
+          <div class="form-group">
+            <p><u>Role</u></p>
+            <%= current_user.role %>
+          </div>
+          <br />
+
+          <div class="form-group">
+              <a href="users/edit" class="btn btn-secondary" role="button"><strong>Edit Details</strong></a>
+          </div>
+        </form>
+        <br />
+      </div>
   </div>
 </div>
-</div>
-<%= render 'shared/footer' %>
+  <%= render 'shared/footer' %>
