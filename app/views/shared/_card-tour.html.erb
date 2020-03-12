@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row min-width-card-guide">
+  <div class="row min-width-card-guide justify-content-around">
     <% @attraction.tours.each do |tour| %>
     <div class="card mr-4 card-limits">
       <div class="card-trip-infos">
@@ -21,12 +21,5 @@
       <% end %>
 
   </div>
-
-      <div class="pt-4 pb-4">
-        <% if current_user.present? && current_user.role == 'guide' %>
-        <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-secondary btn-lg btn-block" %></td>
-        <% end %>
-      </div>
-
 
 </div>

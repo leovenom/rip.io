@@ -43,6 +43,12 @@
   </div>
   <%= render 'shared/card-tour' %>
 </div>
+  <div class="container pt-4 pb-4 col-md-4 justify-content-center">
+        <% if current_user.present? && current_user.role == 'guide' %>
+        <td><%= link_to "Add a tour", new_attraction_tour_path(@attraction), class: "btn btn-secondary btn-lg btn-block", id:"tour-btn" %></td>
+        <% end %>
+      </div>
+
 </div>
 <%= render "shared/footer" %>
 
