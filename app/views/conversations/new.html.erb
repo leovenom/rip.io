@@ -1,12 +1,17 @@
-<h1 class="mt-5">Conversation with <%= @tour.guide.first_name %></h1>
+<div class="container-chatbox mb-3">
+  <div class="conversation-username">
+    <h1 class="mt-3 mb-5">Conversation with <span class="text-blue"><%= @tour.guide.first_name %></span></h1>
+  </div>
 
-<%= link_to 'Back to tour details', tour_path(@tour) %>
-
-<h3>Send new message</h3>
-<%= form_for [@tour, Conversation.new] do |f| %>
-  <div class="field">
+  <h3>Send new message</h3>
+  <%= form_for [@tour, Conversation.new] do |f| %>
+  <div class="field mt-4 mb-4">
     <%= text_area :message, :content, placeholder: "Your message" %>
   </div>
 
   <%= f.submit "Send" %>
-<% end %>
+  <% end %>
+  <div class="text-right mt-3">
+    <%= link_to 'Back to tour details', tour_path(@tour) %>
+  </div>
+</div>

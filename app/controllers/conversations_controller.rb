@@ -20,8 +20,13 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.create(guide: @tour.guide, user: current_user)
+    if Conversation.find_by(guide: @tour.guide).present?
+      @conversation = Conversation.find_by(guide: @tour.guide)
+    else
+      @conversation = Conversation.create!(guide: @tour.guide, user: current_user)
+    end
     authorize @conversation
+
 
     @conversation.messages.create(user: current_user, content: params[:message][:content])
 

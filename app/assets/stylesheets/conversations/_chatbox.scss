@@ -1,10 +1,11 @@
 .container-chatbox {
   margin: auto;
-  margin-top: 80px;
+  margin-top: 110px;
   width: 50%;
-  border: 3px solid #212A3C;
-  padding: 10px;
-  background-color: #212A3C;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 // .field {
@@ -18,3 +19,6 @@ li {
 // .text-right {
 //   margin-right: 20px;
 // }
+.text-blue {
+  color: #3fb1cf;
+}

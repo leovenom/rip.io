@@ -1,16 +1,14 @@
 <div class="container-chatbox">
   <div class="conversation-username">
-    <h1 class="mt-5"><%= @conversation.recipient(current_user).first_name %> <%= @conversation.recipient(current_user).last_name%></h1>
+    <h1 class="mt-4">Conversation with <span class="text-blue"><%= @conversation.recipient(current_user).first_name %></span></h1>
   </div>
 
-  <div class="text-right">
-    <%= link_to '← back', conversations_path %>
-  </div>
+
 
   <% @conversation.messages.each do |message| %>
     <% if message.content %>
       <li>
-        <h4><%= message.user.first_name %></h4>
+        <h4> <span class="text-blue"><%= message.user.first_name %></span></h4>
         <p><%= message.content %></p>
       </li>
     <% end %>
@@ -23,7 +21,10 @@
       <%= f.input :content, as: :text, label: false, placeholder: "Your message", style: 'float: left; width: 100%; display: block' %>
     </div>
 
-    <%= f.submit "Send", class: "btn btn-primary" %>
+    <%= f.submit "Send", class: "btn btn-secondary" %>
 
   <% end %>
+    <div class="text-right">
+    <%= link_to '← back', conversations_path %>
+  </div>
 </div>
