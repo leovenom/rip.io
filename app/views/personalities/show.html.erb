@@ -6,11 +6,9 @@
   <div class="carousel-inner" style="height: 580px; object-fit: cover;">
     <% if @personality.photos.attached? %>
     <% @personality.photos.each_with_index do |attract, indx| %>
-    <div class="carousel-item <%= indx.zero? ? "active" : "" %> ">
-
-
-      <%= cl_image_tag (attract.key), class:"d-block w-100"%>
-    </div>
+      <div class="carousel-item <%= indx.zero? ? "active" : "" %> ">
+        <div class="d-block slide-image" style="height: 580px;background-image: url(<%= cl_image_path attract.key %>)"></div>
+      </div>
     <% end %>
     <% end %>
   </div>
