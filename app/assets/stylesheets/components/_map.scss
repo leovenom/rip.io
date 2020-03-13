@@ -10,13 +10,16 @@
   font-size: 20px;
   }
 }
+mapboxgl-map {
+  padding: 0PX 40px;
+}
 
 #map {
   position: fixed;
-  height: 100vh;
+  height: 85vh;
   top: 0;
   width: 832px;
-  height: 700px;
+  // height: 700px;
   margin-top: 110px;
   margin-bottom: 20px;
   display: flex;
