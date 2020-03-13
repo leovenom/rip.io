@@ -4,7 +4,7 @@
       <div class="index-form">
         <div class="search" style="padding-bottom: 0px; ">
           <form novalidate="novalidate" class="simple_form search " action="/attractions" style="padding-bottom: 10px;" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-            <div id="show-form" class="search-form-control form-group">
+            <div id="show-form" class="search-form-control form-group" style="padding-left: 40px">
               <input class="form-control string required rounded-pill" type="text" name="search[query]" id="search_query" />
               <button name="button" type="submit" class="btn btn-secondary rounded-pill">
                 <i class="fas fa-search"></i> Search </button>
@@ -26,7 +26,7 @@
             <input type="submit" class="btn btn-secondary btn-sm" value="Personalities">
         </form>
       </div>
-      <div class="cards">
+      <div class="cards" style="padding-left: 40px">
         <% @attractions.each do |attract| %>
           <%= link_to attraction_path(attract), class:"d-flex justify-content-center" do %>
             <div class="card-product" style="justify-content: space-between;">
@@ -48,7 +48,7 @@
         <% end %>
       </div>
 
-      <div class="cards">
+      <div class="cards" style="padding-left: 40px">
         <% @personalities.each do |personality| %>
           <%= link_to personality_path(personality), class:"d-flex justify-content-center" do %>
             <div class="card-product"  style="justify-content: space-between;">
