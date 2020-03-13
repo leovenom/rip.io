@@ -1,8 +1,10 @@
-<% if defined?(attraction) %>
-  <h2><%= attraction.name %></h2>
-  <p><%= attraction.address %></p>
-<% else %>
-  <h2><%= personality.name %></h2>
-  <p><%= personality.death_date %></p>
-  <p><%= personality.address %></p>
-<% end %>
+<div class="info">
+  <% if defined?(attraction) %>
+    <h2><%= attraction.name %></h2>
+    <p><%= attraction.address %></p>
+  <% else %>
+    <h2><%= personality.name %></h2>
+    <p><%= personality.death_date %></p>
+    <p><%= personality.address %></p>
+  <% end %>
+</div>
