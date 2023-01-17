@@ -2,7 +2,7 @@
   "name": "rip_io",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "4.2.2",
+    "@rails/webpacker": "5.4.3",
     "bootstrap": "^4.4.1",
     "flatpickr": "^4.6.3",
     "jquery": "^3.5.0",
